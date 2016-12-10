@@ -148,7 +148,7 @@ namespace ORM.DAO
             return osZamFilms;
         }
 
-        public static OsZamFilm Detail(int idFilm, int idZam, int idOsoba, Database pDb = null)
+        public static OsZamFilm Detail(int idZam, int idFilm, int idOsoba, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -184,7 +184,7 @@ namespace ORM.DAO
             return osZamFilm;
         }
 
-        public static int Delete(int idFilm, int idZam, int idOsoba, Database pDb = null)
+        public static int Delete(int idZam, int idFilm, int idOsoba, Database pDb = null)
         {
             Database db;
             if (pDb == null)

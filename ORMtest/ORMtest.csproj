@@ -54,6 +54,10 @@
       <Project>{F2D72F06-F3A1-4B1D-934B-E0B08C8C880C}</Project>
       <Name>ORM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{C7C9CCDA-4B90-49B0-8F4D-FE6AC63714B0}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
