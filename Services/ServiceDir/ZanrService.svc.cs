@@ -8,27 +8,27 @@ namespace Services.ServiceDir
     {
         public int Insert(Zanr zanr, Database pDb = null)
         {
-            return ZanrTable.Insert(zanr, pDb);
+            return ZanrGateway.Insert(zanr, pDb);
         }
 
         public int Update(Zanr zanr, Database pDb = null)
         {
-            return ZanrTable.Update(zanr, pDb);
+            return ZanrGateway.Update(zanr, pDb);
         }
 
         public Collection<Zanr> Select(Database pDb = null)
         {
-            return ZanrTable.Select(pDb);
+            return ZanrGateway.Select(pDb);
         }
 
         public Zanr Detail(int idZanr, Database pDb = null)
         {
-            return ZanrTable.Detail(idZanr, pDb);
+            return ZanrGateway.Detail(idZanr, pDb);
         }
 
         public int Delete(int idZanr, Database pDb = null)
         {
-            return ZanrTable.Delete(idZanr, pDb);
+            return ZanrGateway.Delete(idZanr, pDb);
         }
     }
 }

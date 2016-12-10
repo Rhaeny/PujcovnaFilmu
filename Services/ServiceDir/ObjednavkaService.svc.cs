@@ -8,33 +8,33 @@ namespace Services.ServiceDir
     {
         public int Insert(Objednavka objednavka, Database pDb = null)
         {
-            return ObjednavkaTable.Insert(objednavka, pDb);
+            return ObjednavkaGateway.Insert(objednavka, pDb);
         }
 
         public int Update(Objednavka objednavka, Database pDb = null)
         {
-            return ObjednavkaTable.Update(objednavka, pDb);
+            return ObjednavkaGateway.Update(objednavka, pDb);
         }
 
         public Collection<Objednavka> Select(Database pDb = null)
         {
-            return ObjednavkaTable.Select(pDb);
+            return ObjednavkaGateway.Select(pDb);
         }
 
         public Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null,
             int? idZak = null, int? idFilm = null, int? idVydejce = null, Database pDb = null)
         {
-            return ObjednavkaTable.SelectBy(vydano, vraceno, idZak, idFilm, idVydejce, pDb);
+            return ObjednavkaGateway.SelectBy(vydano, vraceno, idZak, idFilm, idVydejce, pDb);
         }
 
         public Objednavka Detail(int idObj, Database pDb = null)
         {
-            return ObjednavkaTable.Detail(idObj, pDb);
+            return ObjednavkaGateway.Detail(idObj, pDb);
         }
 
         public int Delete(int idObj, Database pDb = null)
         {
-            return ObjednavkaTable.Delete(idObj, pDb);
+            return ObjednavkaGateway.Delete(idObj, pDb);
         }
     }
 }

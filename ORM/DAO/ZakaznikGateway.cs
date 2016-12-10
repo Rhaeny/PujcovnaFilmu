@@ -5,39 +5,39 @@ using DTO;
 
 namespace ORM.DAO
 {
-    public class RecenzeTable
+    public class ZakaznikGateway
     {
-        public static string TableName = "Recenze";
+        public static string TableName = "Zakaznik";
 
         public static string SqlSelect =
-            "SELECT Datum, Cislo, Text, IdZak, IdFilm " +
-            "FROM Recenze ";
+            "SELECT IdZak, Jmeno, Prijmeni, Email, Telefon " +
+            "FROM Zakaznik ";
 
         public static string SqlSelectBy =
-            "SELECT Datum, Cislo, Text, IdZak, IdFilm " +
-            "FROM Recenze ";
+            "SELECT IdZak, Jmeno, Prijmeni, Email, Telefon " +
+            "FROM Zakaznik ";
 
         public static string SqlDetail =
-            "SELECT Datum, Cislo, Text, IdZak, IdFilm " +
-            "FROM Recenze " +
-            "WHERE IdZak = @IdZak AND IdFilm = @IdFilm ";
+            "SELECT IdZak, Jmeno, Prijmeni, Email, Telefon " +
+            "FROM Zakaznik " +
+            "WHERE IdZak = @IdZak ";
 
         public static string SqlInsert =
-            "INSERT INTO Recenze " +
-            "VALUES(@Datum, @Cislo, @Text, @IdZak, @IdFilm) ";
+            "INSERT INTO Zakaznik " +
+            "VALUES(@Jmeno, @Prijmeni, @Email, @Telefon) ";
 
         public static string SqlUpdate =
-            "UPDATE Recenze " +
-            "SET Datum = @Datum, Cislo = @Cislo, Text = @Text " +
-            "WHERE IdZak = @IdZak AND IdFilm = @IdFilm ";
+            "UPDATE Zakaznik " +
+            "SET Jmeno = @Jmeno, Prijmeni = @Prijmeni, Email = @Email, Telefon = @Telefon " +
+            "WHERE IdZak = @IdZak ";
 
         public static string SqlDelete =
-            "DELETE FROM Recenze " +
-            "WHERE IdZak = @IdZak AND IdFilm = @IdFilm ";
+            "DELETE FROM Zakaznik " +
+            "WHERE IdZak = @IdZak ";
 
         #region Statické metody
 
-        public static int Insert(Recenze recenze, Database pDb = null)
+        public static int Insert(Zakaznik zakaznik, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -51,7 +51,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlInsert);
-            PrepareCommand(command, recenze);
+            PrepareCommand(command, zakaznik);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -62,7 +62,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static int Update(Recenze recenze, Database pDb = null)
+        public static int Update(Zakaznik zakaznik, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -76,7 +76,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
-            PrepareCommand(command, recenze);
+            PrepareCommand(command, zakaznik);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -87,7 +87,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static Collection<Recenze> Select(Database pDb = null)
+        public static Collection<Zakaznik> Select(Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -103,7 +103,7 @@ namespace ORM.DAO
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Recenze> recenzes = Read(reader);
+            Collection<Zakaznik> zakaznici = Read(reader);
             reader.Close();
 
             if (pDb == null)
@@ -111,10 +111,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return recenzes;
+            return zakaznici;
         }
 
-        public static Collection<Recenze> SelectBy(int? idZak = null, int? idFilm = null, int? cislo = null, Database pDb = null)
+        public static Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -129,42 +129,43 @@ namespace ORM.DAO
 
             bool first = false;
 
-            if (idZak != null)
+            if (jmeno != "")
             {
                 first = true;
-                SqlSelectBy += "WHERE IdZak = @IdZak ";
+                SqlSelectBy += "WHERE Jmeno = @Jmeno ";
             }
-            if (idFilm != null)
+            if (prijmeni != "")
             {
                 if (first)
-                    SqlSelectBy += "AND IdFilm = @IdFilm ";
+                    SqlSelectBy += "AND Prijmeni = @Prijmeni ";
                 else
                 {
-                    SqlSelectBy += "WHERE IdFilm = @IdFilm ";
+                    first = true;
+                    SqlSelectBy += "WHERE Prijmeni = @Prijmeni ";
                 }
             }
-            if (cislo != null)
+            if (email != "")
             {
                 if (first)
-                    SqlSelectBy += "AND Cislo = @Cislo ";
+                    SqlSelectBy += "AND Email = @Email ";
                 else
                 {
-                    SqlSelectBy += "WHERE Cislo = @Cislo ";
+                    SqlSelectBy += "WHERE Email = @Email ";
                 }
             }
 
             SqlCommand command = db.CreateCommand(SqlSelectBy);
-
-            if (idZak != null)
-                command.Parameters.AddWithValue("@IdZak", idZak);
-            if (idFilm != null)
-                command.Parameters.AddWithValue("@IdFilm", idFilm);
-            if (cislo != null)
-                command.Parameters.AddWithValue("@Cislo", cislo);
+            
+            if (jmeno != "")
+                command.Parameters.AddWithValue("@Jmeno", jmeno);
+            if (prijmeni != "")
+                command.Parameters.AddWithValue("@Prijmeni", prijmeni);
+            if (email != "")
+                command.Parameters.AddWithValue("@Email", email);
 
             SqlDataReader reader = db.Select(command);
 
-            Collection<Recenze> recenzes = Read(reader);
+            Collection<Zakaznik> zakaznici = Read(reader);
             reader.Close();
 
             SqlSelectBy = SqlSelect;
@@ -174,10 +175,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return recenzes;
+            return zakaznici;
         }
 
-        public static Recenze Detail(int idZak, int idFilm, Database pDb = null)
+        public static Zakaznik Detail(int idZak, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -193,14 +194,13 @@ namespace ORM.DAO
             SqlCommand command = db.CreateCommand(SqlDetail);
 
             command.Parameters.AddWithValue("@IdZak", idZak);
-            command.Parameters.AddWithValue("@IdFilm", idFilm);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Recenze> recenzes = Read(reader);
-            Recenze recenze = null;
-            if (recenzes.Count == 1)
+            Collection<Zakaznik> zakaznici = Read(reader);
+            Zakaznik zakaznik = null;
+            if (zakaznici.Count == 1)
             {
-                recenze = recenzes[0];
+                zakaznik = zakaznici[0];
             }
             reader.Close();
 
@@ -209,10 +209,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return recenze;
+            return zakaznik;
         }
 
-        public static int Delete(int idZak, int idFilm, Database pDb = null)
+        public static int Delete(int idZak, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -227,7 +227,6 @@ namespace ORM.DAO
 
             SqlCommand command = db.CreateCommand(SqlDelete);
             command.Parameters.AddWithValue("@IdZak", idZak);
-            command.Parameters.AddWithValue("@IdFilm", idFilm);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -240,34 +239,37 @@ namespace ORM.DAO
 
         #endregion
 
-        private static void PrepareCommand(SqlCommand command, Recenze recenze)
+        private static void PrepareCommand(SqlCommand command, Zakaznik zakaznik)
         {
-            command.Parameters.AddWithValue("@Datum", recenze.Datum);
-            command.Parameters.AddWithValue("@Cislo", recenze.Cislo);
-            command.Parameters.AddWithValue("@Text", recenze.Text == null ? DBNull.Value : (object)recenze.Text);
-            command.Parameters.AddWithValue("@IdZak", recenze.IdZak);
-            command.Parameters.AddWithValue("@IdFilm", recenze.IdFilm);
+            command.Parameters.AddWithValue("@IdZak", zakaznik.IdZak);
+            command.Parameters.AddWithValue("@Jmeno", zakaznik.Jmeno);
+            command.Parameters.AddWithValue("@Prijmeni", zakaznik.Prijmeni);
+            command.Parameters.AddWithValue("@Email", zakaznik.Email == null ? DBNull.Value : (object)zakaznik.Email);
+            command.Parameters.AddWithValue("@Telefon", zakaznik.Telefon == null ? DBNull.Value : (object)zakaznik.Telefon);
         }
 
-        private static Collection<Recenze> Read(SqlDataReader reader)
+        private static Collection<Zakaznik> Read(SqlDataReader reader)
         {
-            Collection<Recenze> recenzes = new Collection<Recenze>();
+            Collection<Zakaznik> zakaznici = new Collection<Zakaznik>();
 
             while (reader.Read())
             {
-                Recenze recenze = new Recenze();
+                Zakaznik zakaznik = new Zakaznik();
                 int i = -1;
-                recenze.Datum = reader.GetDateTime(++i);
-                recenze.Cislo = reader.GetInt32(++i);
+                zakaznik.IdZak = reader.GetInt32(++i);
+                zakaznik.Jmeno = reader.GetString(++i);
+                zakaznik.Prijmeni = reader.GetString(++i);
                 if (!reader.IsDBNull(++i))
                 {
-                    recenze.Text = reader.GetString(i);
+                    zakaznik.Email = reader.GetString(i);
                 }
-                recenze.IdZak = reader.GetInt32(++i);
-                recenze.IdFilm = reader.GetInt32(++i);
-                recenzes.Add(recenze);
+                if (!reader.IsDBNull(++i))
+                {
+                    zakaznik.Telefon = reader.GetString(i);
+                }
+                zakaznici.Add(zakaznik);
             }
-            return recenzes;
+            return zakaznici;
         }
     }
 }

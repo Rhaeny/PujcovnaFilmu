@@ -1,43 +1,42 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using DTO;
 
 namespace ORM.DAO
 {
-    public class ZakaznikTable
+    public class VydejceGateway
     {
-        public static string TableName = "Zakaznik";
+        public static string TableName = "Vydejce";
 
         public static string SqlSelect =
-            "SELECT IdZak, Jmeno, Prijmeni, Email, Telefon " +
-            "FROM Zakaznik ";
+            "SELECT IdVydejce, Jmeno, Prijmeni, Email, Telefon " +
+            "FROM Vydejce ";
 
         public static string SqlSelectBy =
-            "SELECT IdZak, Jmeno, Prijmeni, Email, Telefon " +
-            "FROM Zakaznik ";
+            "SELECT IdVydejce, Jmeno, Prijmeni, Email, Telefon " +
+            "FROM Vydejce ";
 
         public static string SqlDetail =
-            "SELECT IdZak, Jmeno, Prijmeni, Email, Telefon " +
-            "FROM Zakaznik " +
-            "WHERE IdZak = @IdZak ";
+            "SELECT IdVydejce, Jmeno, Prijmeni, Email, Telefon " +
+            "FROM Vydejce " +
+            "WHERE IdVydejce = @IdVydejce ";
 
         public static string SqlInsert =
-            "INSERT INTO Zakaznik " +
+            "INSERT INTO Vydejce " +
             "VALUES(@Jmeno, @Prijmeni, @Email, @Telefon) ";
 
         public static string SqlUpdate =
-            "UPDATE Zakaznik " +
+            "UPDATE Vydejce " +
             "SET Jmeno = @Jmeno, Prijmeni = @Prijmeni, Email = @Email, Telefon = @Telefon " +
-            "WHERE IdZak = @IdZak ";
+            "WHERE IdVydejce = @IdVydejce ";
 
         public static string SqlDelete =
-            "DELETE FROM Zakaznik " +
-            "WHERE IdZak = @IdZak ";
+            "DELETE FROM Vydejce " +
+            "WHERE IdVydejce = @IdVydejce ";
 
         #region Statické metody
 
-        public static int Insert(Zakaznik zakaznik, Database pDb = null)
+        public static int Insert(Vydejce vydejce, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -51,7 +50,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlInsert);
-            PrepareCommand(command, zakaznik);
+            PrepareCommand(command, vydejce);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -62,7 +61,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static int Update(Zakaznik zakaznik, Database pDb = null)
+        public static int Update(Vydejce vydejce, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -76,7 +75,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
-            PrepareCommand(command, zakaznik);
+            PrepareCommand(command, vydejce);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -87,7 +86,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static Collection<Zakaznik> Select(Database pDb = null)
+        public static Collection<Vydejce> Select(Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -103,7 +102,7 @@ namespace ORM.DAO
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Zakaznik> zakaznici = Read(reader);
+            Collection<Vydejce> vydejci = Read(reader);
             reader.Close();
 
             if (pDb == null)
@@ -111,10 +110,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return zakaznici;
+            return vydejci;
         }
 
-        public static Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
+        public static Collection<Vydejce> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -155,7 +154,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlSelectBy);
-            
+
             if (jmeno != "")
                 command.Parameters.AddWithValue("@Jmeno", jmeno);
             if (prijmeni != "")
@@ -165,7 +164,7 @@ namespace ORM.DAO
 
             SqlDataReader reader = db.Select(command);
 
-            Collection<Zakaznik> zakaznici = Read(reader);
+            Collection<Vydejce> vydejci = Read(reader);
             reader.Close();
 
             SqlSelectBy = SqlSelect;
@@ -175,10 +174,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return zakaznici;
+            return vydejci;
         }
 
-        public static Zakaznik Detail(int idZak, Database pDb = null)
+        public static Vydejce Detail(int idVydejce, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -193,14 +192,14 @@ namespace ORM.DAO
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
-            command.Parameters.AddWithValue("@IdZak", idZak);
+            command.Parameters.AddWithValue("@IdVydejce", idVydejce);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Zakaznik> zakaznici = Read(reader);
-            Zakaznik zakaznik = null;
-            if (zakaznici.Count == 1)
+            Collection<Vydejce> vydejci = Read(reader);
+            Vydejce vydejce = null;
+            if (vydejci.Count == 1)
             {
-                zakaznik = zakaznici[0];
+                vydejce = vydejci[0];
             }
             reader.Close();
 
@@ -209,10 +208,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return zakaznik;
+            return vydejce;
         }
 
-        public static int Delete(int idZak, Database pDb = null)
+        public static int Delete(int idVydejce, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -226,7 +225,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlDelete);
-            command.Parameters.AddWithValue("@IdZak", idZak);
+            command.Parameters.AddWithValue("@IdVydejce", idVydejce);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -239,37 +238,31 @@ namespace ORM.DAO
 
         #endregion
 
-        private static void PrepareCommand(SqlCommand command, Zakaznik zakaznik)
+        private static void PrepareCommand(SqlCommand command, Vydejce vydejce)
         {
-            command.Parameters.AddWithValue("@IdZak", zakaznik.IdZak);
-            command.Parameters.AddWithValue("@Jmeno", zakaznik.Jmeno);
-            command.Parameters.AddWithValue("@Prijmeni", zakaznik.Prijmeni);
-            command.Parameters.AddWithValue("@Email", zakaznik.Email == null ? DBNull.Value : (object)zakaznik.Email);
-            command.Parameters.AddWithValue("@Telefon", zakaznik.Telefon == null ? DBNull.Value : (object)zakaznik.Telefon);
+            command.Parameters.AddWithValue("@IdVydejce", vydejce.IdVydejce);
+            command.Parameters.AddWithValue("@Jmeno", vydejce.Jmeno);
+            command.Parameters.AddWithValue("@Prijmeni", vydejce.Prijmeni);
+            command.Parameters.AddWithValue("@Email", vydejce.Email);
+            command.Parameters.AddWithValue("@Telefon", vydejce.Telefon);
         }
 
-        private static Collection<Zakaznik> Read(SqlDataReader reader)
+        private static Collection<Vydejce> Read(SqlDataReader reader)
         {
-            Collection<Zakaznik> zakaznici = new Collection<Zakaznik>();
+            Collection<Vydejce> vydejci = new Collection<Vydejce>();
 
             while (reader.Read())
             {
-                Zakaznik zakaznik = new Zakaznik();
+                Vydejce vydejce = new Vydejce();
                 int i = -1;
-                zakaznik.IdZak = reader.GetInt32(++i);
-                zakaznik.Jmeno = reader.GetString(++i);
-                zakaznik.Prijmeni = reader.GetString(++i);
-                if (!reader.IsDBNull(++i))
-                {
-                    zakaznik.Email = reader.GetString(i);
-                }
-                if (!reader.IsDBNull(++i))
-                {
-                    zakaznik.Telefon = reader.GetString(i);
-                }
-                zakaznici.Add(zakaznik);
+                vydejce.IdVydejce = reader.GetInt32(++i);
+                vydejce.Jmeno = reader.GetString(++i);
+                vydejce.Prijmeni = reader.GetString(++i);
+                vydejce.Email = reader.GetString(++i);
+                vydejce.Telefon = reader.GetString(++i);
+                vydejci.Add(vydejce);
             }
-            return zakaznici;
+            return vydejci;
         }
     }
 }

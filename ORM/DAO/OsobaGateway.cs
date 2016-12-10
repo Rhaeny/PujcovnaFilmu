@@ -1,42 +1,43 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using DTO;
 
 namespace ORM.DAO
 {
-    public class VydejceTable
+    public class OsobaGateway
     {
-        public static string TableName = "Vydejce";
+        public static string TableName = "Osoba";
 
         public static string SqlSelect =
-            "SELECT IdVydejce, Jmeno, Prijmeni, Email, Telefon " +
-            "FROM Vydejce ";
+            "SELECT IdOsoba, Jmeno, Prijmeni, Biografie " +
+            "FROM Osoba ";
 
         public static string SqlSelectBy =
-            "SELECT IdVydejce, Jmeno, Prijmeni, Email, Telefon " +
-            "FROM Vydejce ";
+            "SELECT IdOsoba, Jmeno, Prijmeni, Biografie " +
+            "FROM Osoba ";
 
         public static string SqlDetail =
-            "SELECT IdVydejce, Jmeno, Prijmeni, Email, Telefon " +
-            "FROM Vydejce " +
-            "WHERE IdVydejce = @IdVydejce ";
+            "SELECT IdOsoba, Jmeno, Prijmeni, Biografie " +
+            "FROM Osoba " +
+            "WHERE IdOsoba = @IdOsoba ";
 
         public static string SqlInsert =
-            "INSERT INTO Vydejce " +
-            "VALUES(@Jmeno, @Prijmeni, @Email, @Telefon) ";
+            "INSERT INTO Osoba " +
+            "VALUES(@Jmeno, @Prijmeni, @Biografie) ";
 
         public static string SqlUpdate =
-            "UPDATE Vydejce " +
-            "SET Jmeno = @Jmeno, Prijmeni = @Prijmeni, Email = @Email, Telefon = @Telefon " +
-            "WHERE IdVydejce = @IdVydejce ";
+            "UPDATE Osoba " +
+            "SET Jmeno = @Jmeno, Prijmeni = @Prijmeni, Biografie = @Biografie " +
+            "WHERE IdOsoba = @IdOsoba ";
 
         public static string SqlDelete =
-            "DELETE FROM Vydejce " +
-            "WHERE IdVydejce = @IdVydejce ";
+            "DELETE FROM Osoba " +
+            "WHERE IdOsoba = @IdOsoba ";
 
         #region Statické metody
 
-        public static int Insert(Vydejce vydejce, Database pDb = null)
+        public static int Insert(Osoba osoba, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -50,7 +51,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlInsert);
-            PrepareCommand(command, vydejce);
+            PrepareCommand(command, osoba);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -61,7 +62,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static int Update(Vydejce vydejce, Database pDb = null)
+        public static int Update(Osoba osoba, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -75,7 +76,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
-            PrepareCommand(command, vydejce);
+            PrepareCommand(command, osoba);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -86,7 +87,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static Collection<Vydejce> Select(Database pDb = null)
+        public static Collection<Osoba> Select(Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -102,7 +103,7 @@ namespace ORM.DAO
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Vydejce> vydejci = Read(reader);
+            Collection<Osoba> osoby = Read(reader);
             reader.Close();
 
             if (pDb == null)
@@ -110,10 +111,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return vydejci;
+            return osoby;
         }
 
-        public static Collection<Vydejce> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
+        public static Collection<Osoba> SelectBy(string jmeno = "", string prijmeni = "", Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -139,17 +140,7 @@ namespace ORM.DAO
                     SqlSelectBy += "AND Prijmeni = @Prijmeni ";
                 else
                 {
-                    first = true;
                     SqlSelectBy += "WHERE Prijmeni = @Prijmeni ";
-                }
-            }
-            if (email != "")
-            {
-                if (first)
-                    SqlSelectBy += "AND Email = @Email ";
-                else
-                {
-                    SqlSelectBy += "WHERE Email = @Email ";
                 }
             }
 
@@ -159,12 +150,10 @@ namespace ORM.DAO
                 command.Parameters.AddWithValue("@Jmeno", jmeno);
             if (prijmeni != "")
                 command.Parameters.AddWithValue("@Prijmeni", prijmeni);
-            if (email != "")
-                command.Parameters.AddWithValue("@Email", email);
 
             SqlDataReader reader = db.Select(command);
 
-            Collection<Vydejce> vydejci = Read(reader);
+            Collection<Osoba> osoby = Read(reader);
             reader.Close();
 
             SqlSelectBy = SqlSelect;
@@ -174,10 +163,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return vydejci;
+            return osoby;
         }
 
-        public static Vydejce Detail(int idVydejce, Database pDb = null)
+        public static Osoba Detail(int idOsoba, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -192,14 +181,14 @@ namespace ORM.DAO
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
-            command.Parameters.AddWithValue("@IdVydejce", idVydejce);
+            command.Parameters.AddWithValue("@IdOsoba", idOsoba);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Vydejce> vydejci = Read(reader);
-            Vydejce vydejce = null;
-            if (vydejci.Count == 1)
+            Collection<Osoba> osoby = Read(reader);
+            Osoba osoba = null;
+            if (osoby.Count == 1)
             {
-                vydejce = vydejci[0];
+                osoba = osoby[0];
             }
             reader.Close();
 
@@ -208,10 +197,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return vydejce;
+            return osoba;
         }
 
-        public static int Delete(int idVydejce, Database pDb = null)
+        public static int Delete(int idOsoba, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -225,7 +214,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlDelete);
-            command.Parameters.AddWithValue("@IdVydejce", idVydejce);
+            command.Parameters.AddWithValue("@IdOsoba", idOsoba);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -238,31 +227,33 @@ namespace ORM.DAO
 
         #endregion
 
-        private static void PrepareCommand(SqlCommand command, Vydejce vydejce)
+        private static void PrepareCommand(SqlCommand command, Osoba osoba)
         {
-            command.Parameters.AddWithValue("@IdVydejce", vydejce.IdVydejce);
-            command.Parameters.AddWithValue("@Jmeno", vydejce.Jmeno);
-            command.Parameters.AddWithValue("@Prijmeni", vydejce.Prijmeni);
-            command.Parameters.AddWithValue("@Email", vydejce.Email);
-            command.Parameters.AddWithValue("@Telefon", vydejce.Telefon);
+            command.Parameters.AddWithValue("@IdOsoba", osoba.IdOsoba);
+            command.Parameters.AddWithValue("@Jmeno", osoba.Jmeno);
+            command.Parameters.AddWithValue("@Prijmeni", osoba.Prijmeni);
+            command.Parameters.AddWithValue("@Biografie",
+                osoba.Biografie == null ? DBNull.Value : (object)osoba.Biografie);
         }
 
-        private static Collection<Vydejce> Read(SqlDataReader reader)
+        private static Collection<Osoba> Read(SqlDataReader reader)
         {
-            Collection<Vydejce> vydejci = new Collection<Vydejce>();
+            Collection<Osoba> osoby = new Collection<Osoba>();
 
             while (reader.Read())
             {
-                Vydejce vydejce = new Vydejce();
+                Osoba osoba = new Osoba();
                 int i = -1;
-                vydejce.IdVydejce = reader.GetInt32(++i);
-                vydejce.Jmeno = reader.GetString(++i);
-                vydejce.Prijmeni = reader.GetString(++i);
-                vydejce.Email = reader.GetString(++i);
-                vydejce.Telefon = reader.GetString(++i);
-                vydejci.Add(vydejce);
+                osoba.IdOsoba = reader.GetInt32(++i);
+                osoba.Jmeno = reader.GetString(++i);
+                osoba.Prijmeni = reader.GetString(++i);
+                if (!reader.IsDBNull(++i))
+                {
+                    osoba.Biografie = reader.GetString(i);
+                }
+                osoby.Add(osoba);
             }
-            return vydejci;
+            return osoby;
         }
     }
 }

@@ -8,32 +8,32 @@ namespace Services.ServiceDir
     {
         public int Insert(Zakaznik zakaznik, Database pDb = null)
         {
-            return ZakaznikTable.Insert(zakaznik, pDb);
+            return ZakaznikGateway.Insert(zakaznik, pDb);
         }
 
         public int Update(Zakaznik zakaznik, Database pDb = null)
         {
-            return ZakaznikTable.Update(zakaznik, pDb);
+            return ZakaznikGateway.Update(zakaznik, pDb);
         }
 
         public Collection<Zakaznik> Select(Database pDb = null)
         {
-            return ZakaznikTable.Select(pDb);
+            return ZakaznikGateway.Select(pDb);
         }
 
         public Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
         {
-            return ZakaznikTable.SelectBy(jmeno, prijmeni, email, pDb);
+            return ZakaznikGateway.SelectBy(jmeno, prijmeni, email, pDb);
         }
 
         public Zakaznik Detail(int idZak, Database pDb = null)
         {
-            return ZakaznikTable.Detail(idZak, pDb);
+            return ZakaznikGateway.Detail(idZak, pDb);
         }
 
         public int Delete(int idZak, Database pDb = null)
         {
-            return ZakaznikTable.Delete(idZak, pDb);
+            return ZakaznikGateway.Delete(idZak, pDb);
         }
     }
 }

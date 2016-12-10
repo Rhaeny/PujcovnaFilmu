@@ -8,32 +8,32 @@ namespace Services.ServiceDir
     {
         public int Insert(Recenze recenze, Database pDb = null)
         {
-            return RecenzeTable.Insert(recenze, pDb);
+            return RecenzeGateway.Insert(recenze, pDb);
         }
 
         public int Update(Recenze recenze, Database pDb = null)
         {
-            return RecenzeTable.Update(recenze, pDb);
+            return RecenzeGateway.Update(recenze, pDb);
         }
 
         public Collection<Recenze> Select(Database pDb = null)
         {
-            return RecenzeTable.Select(pDb);
+            return RecenzeGateway.Select(pDb);
         }
 
         public Collection<Recenze> SelectBy(int? idZak = null, int? idFilm = null, int? cislo = null, Database pDb = null)
         {
-            return RecenzeTable.SelectBy(idZak, idFilm, cislo, pDb);
+            return RecenzeGateway.SelectBy(idZak, idFilm, cislo, pDb);
         }
 
         public Recenze Detail(int idZak, int idFilm, Database pDb = null)
         {
-            return RecenzeTable.Detail(idZak, idFilm, pDb);
+            return RecenzeGateway.Detail(idZak, idFilm, pDb);
         }
 
         public int Delete(int idZak, int idFilm, Database pDb = null)
         {
-            return RecenzeTable.Delete(idZak, idFilm, pDb);
+            return RecenzeGateway.Delete(idZak, idFilm, pDb);
         }
     }
 }

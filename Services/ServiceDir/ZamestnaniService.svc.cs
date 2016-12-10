@@ -8,27 +8,27 @@ namespace Services.ServiceDir
     {
         public int Insert(Zamestnani zam, Database pDb = null)
         {
-            return ZamestnaniTable.Insert(zam, pDb);
+            return ZamestnaniGateway.Insert(zam, pDb);
         }
 
         public int Update(Zamestnani zam, Database pDb = null)
         {
-            return ZamestnaniTable.Update(zam, pDb);
+            return ZamestnaniGateway.Update(zam, pDb);
         }
 
         public Collection<Zamestnani> Select(Database pDb = null)
         {
-            return ZamestnaniTable.Select(pDb);
+            return ZamestnaniGateway.Select(pDb);
         }
 
         public Zamestnani Detail(int idZam, Database pDb = null)
         {
-            return ZamestnaniTable.Detail(idZam, pDb);
+            return ZamestnaniGateway.Detail(idZam, pDb);
         }
 
         public int Delete(int idZam, Database pDb = null)
         {
-            return ZamestnaniTable.Delete(idZam, pDb);
+            return ZamestnaniGateway.Delete(idZam, pDb);
         }
     }
 }

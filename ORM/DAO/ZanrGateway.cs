@@ -4,35 +4,35 @@ using DTO;
 
 namespace ORM.DAO
 {
-    public class ZamestnaniTable
+    public class ZanrGateway
     {
-        public static string TableName = "Zamestnani";
+        public static string TableName = "Zanr";
 
         public static string SqlSelect =
-            "SELECT IdZam, Nazev " +
-            "FROM Zamestnani ";
+            "SELECT IdZanr, Nazev " +
+            "FROM Zanr ";
 
         public static string SqlDetail =
-            "SELECT IdZam, Nazev " +
-            "FROM Zamestnani " +
-            "WHERE IdZam = @IdZam ";
+            "SELECT IdZanr, Nazev " +
+            "FROM Zanr " +
+            "WHERE IdZanr = @IdZanr ";
 
         public static string SqlInsert =
-            "INSERT INTO Zamestnani " +
+            "INSERT INTO Zanr " +
             "VALUES(@Nazev) ";
 
         public static string SqlUpdate =
-            "UPDATE Zamestnani " +
+            "UPDATE Zanr " +
             "SET Nazev = @Nazev " +
-            "WHERE IdZam = @IdZam ";
+            "WHERE IdZanr = @IdZanr ";
 
         public static string SqlDelete =
-            "DELETE FROM Zamestnani " +
-            "WHERE IdZam = @IdZam ";
+            "DELETE FROM Zanr " +
+            "WHERE IdZanr = @IdZanr ";
 
         #region Statické metody
 
-        public static int Insert(Zamestnani zam, Database pDb = null)
+        public static int Insert(Zanr zanr, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -46,7 +46,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlInsert);
-            PrepareCommand(command, zam);
+            PrepareCommand(command, zanr);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -57,7 +57,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static int Update(Zamestnani zam, Database pDb = null)
+        public static int Update(Zanr zanr, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -71,7 +71,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
-            PrepareCommand(command, zam);
+            PrepareCommand(command, zanr);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -82,7 +82,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static Collection<Zamestnani> Select(Database pDb = null)
+        public static Collection<Zanr> Select(Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -98,7 +98,7 @@ namespace ORM.DAO
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Zamestnani> zams = Read(reader);
+            Collection<Zanr> zanry = Read(reader);
             reader.Close();
 
             if (pDb == null)
@@ -106,10 +106,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return zams;
+            return zanry;
         }
 
-        public static Zamestnani Detail(int idZam, Database pDb = null)
+        public static Zanr Detail(int idZanr, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -124,14 +124,14 @@ namespace ORM.DAO
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
-            command.Parameters.AddWithValue("@IdZam", idZam);
+            command.Parameters.AddWithValue("@IdZanr", idZanr);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Zamestnani> zams = Read(reader);
-            Zamestnani zam = null;
-            if (zams.Count == 1)
+            Collection<Zanr> zanry = Read(reader);
+            Zanr zanr = null;
+            if (zanry.Count == 1)
             {
-                zam = zams[0];
+                zanr = zanry[0];
             }
             reader.Close();
 
@@ -140,10 +140,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return zam;
+            return zanr;
         }
 
-        public static int Delete(int idZam, Database pDb = null)
+        public static int Delete(int idZanr, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -157,7 +157,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlDelete);
-            command.Parameters.AddWithValue("@IdZam", idZam);
+            command.Parameters.AddWithValue("@IdZanr", idZanr);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -170,24 +170,25 @@ namespace ORM.DAO
 
         #endregion
 
-        private static void PrepareCommand(SqlCommand command, Zamestnani zam)
+        private static void PrepareCommand(SqlCommand command, Zanr zanr)
         {
-            command.Parameters.AddWithValue("@IdZam", zam.IdZam);
-            command.Parameters.AddWithValue("@Nazev", zam.Nazev);
+            command.Parameters.AddWithValue("@IdZanr", zanr.IdZanr);
+            command.Parameters.AddWithValue("@Nazev", zanr.Nazev);
         }
 
-        private static Collection<Zamestnani> Read(SqlDataReader reader)
+        private static Collection<Zanr> Read(SqlDataReader reader)
         {
-            Collection<Zamestnani> zams = new Collection<Zamestnani>();
+            Collection<Zanr> zanry = new Collection<Zanr>();
+
             while (reader.Read())
             {
-                Zamestnani zam = new Zamestnani();
+                Zanr zanr = new Zanr();
                 int i = -1;
-                zam.IdZam = reader.GetInt32(++i);
-                zam.Nazev = reader.GetString(++i);
-                zams.Add(zam);
+                zanr.IdZanr = reader.GetInt32(++i);
+                zanr.Nazev = reader.GetString(++i);
+                zanry.Add(zanr);
             }
-            return zams;
+            return zanry;
         }
     }
 }

@@ -8,7 +8,7 @@ using DTO;
 
 namespace ORM.DAO
 {
-    public class ObjednavkaTable
+    public class ObjednavkaGateway
     {
         public static string TableName = "Objednavka";
 

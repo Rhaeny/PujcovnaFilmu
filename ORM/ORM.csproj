@@ -42,17 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\Database.cs" />
-    <Compile Include="DAO\FilmTable.cs" />
-    <Compile Include="DAO\FilmZanrTable.cs" />
-    <Compile Include="DAO\FrontaTable.cs" />
-    <Compile Include="DAO\ObjednavkaTable.cs" />
-    <Compile Include="DAO\OsobaTable.cs" />
-    <Compile Include="DAO\OsZamFilmTable.cs" />
-    <Compile Include="DAO\RecenzeTable.cs" />
-    <Compile Include="DAO\VydejceTable.cs" />
-    <Compile Include="DAO\ZakaznikTable.cs" />
-    <Compile Include="DAO\ZamestnaniTable.cs" />
-    <Compile Include="DAO\ZanrTable.cs" />
+    <Compile Include="DAO\FilmGateway.cs" />
+    <Compile Include="DAO\FilmZanrGateway.cs" />
+    <Compile Include="DAO\FrontaGateway.cs" />
+    <Compile Include="DAO\ObjednavkaGateway.cs" />
+    <Compile Include="DAO\OsobaGateway.cs" />
+    <Compile Include="DAO\OsZamFilmGateway.cs" />
+    <Compile Include="DAO\RecenzeGateway.cs" />
+    <Compile Include="DAO\VydejceGateway.cs" />
+    <Compile Include="DAO\ZakaznikGateway.cs" />
+    <Compile Include="DAO\ZamestnaniGateway.cs" />
+    <Compile Include="DAO\ZanrGateway.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@ using DTO;
 
 namespace ORM.DAO
 {
-    public class OsZamFilmTable
+    public class OsZamFilmGateway
     {
         public static string TableName = "OsZamFilm";
 
