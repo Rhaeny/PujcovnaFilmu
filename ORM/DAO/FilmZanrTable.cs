@@ -9,20 +9,20 @@ namespace ORM.DAO
         public static string TableName = "FilmZanr";
 
         public static string SqlSelect =
-            "SELECT IdFilm, IdZanr " +
+            "SELECT IdZanr, IdFilm  " +
             "FROM FilmZanr ";
 
         public static string SqlSelectBy =
-            "SELECT IdFilm, IdZanr " +
+            "SELECT IdZanr, IdFilm " +
             "FROM FilmZanr ";
 
         public static string SqlInsert =
             "INSERT INTO FilmZanr " +
-            "VALUES(@IdFilm, @IdZanr) ";
+            "VALUES(@IdZanr, @IdFilm) ";
 
         public static string SqlDelete =
             "DELETE FROM FilmZanr " +
-            "WHERE IdFilm = @IdFilm AND IdZanr = @IdZanr ";
+            "WHERE IdZanr = @IdZanr AND IdFilm = @IdFilm ";
 
         #region Statické metody
 
@@ -78,7 +78,7 @@ namespace ORM.DAO
             return filmZanry;
         }
 
-        public static Collection<FilmZanr> SelectBy(int? idFilm = null, int? idZanr = null, Database pDb = null)
+        public static Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -96,24 +96,24 @@ namespace ORM.DAO
             if (idFilm != null)
             {
                 first = true;
-                SqlSelectBy += "WHERE IdFilm = @IdFilm ";
+                SqlSelectBy += "WHERE IdZanr = @IdZanr ";
             }
             if (idZanr != null)
             {
                 if (first)
-                    SqlSelectBy += "AND IdZanr = @IdZanr ";
+                    SqlSelectBy += "AND IdFilm = @IdFilm ";
                 else
                 {
-                    SqlSelectBy += "WHERE IdZanr = @IdZanr ";
+                    SqlSelectBy += "WHERE IdFilm = @IdFilm ";
                 }
             }
 
             SqlCommand command = db.CreateCommand(SqlSelectBy);
 
             if (idFilm != null)
-                command.Parameters.AddWithValue("@IdFilm", idFilm);
+                command.Parameters.AddWithValue("@IdZanr", idFilm);
             if (idZanr != null)
-                command.Parameters.AddWithValue("@IdZanr", idZanr);
+                command.Parameters.AddWithValue("@IdFilm", idZanr);
 
             SqlDataReader reader = db.Select(command);
 
@@ -144,8 +144,8 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlDelete);
-            command.Parameters.AddWithValue("@IdFilm", idFilm);
-            command.Parameters.AddWithValue("@IdZanr", idZanr);
+            command.Parameters.AddWithValue("@IdZanr", idFilm);
+            command.Parameters.AddWithValue("@IdFilm", idZanr);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -160,8 +160,8 @@ namespace ORM.DAO
 
         private static void PrepareCommand(SqlCommand command, FilmZanr filmZanr)
         {
-            command.Parameters.AddWithValue("@IdFilm", filmZanr.IdFilm);
-            command.Parameters.AddWithValue("@IdZanr", filmZanr.IdZanr);
+            command.Parameters.AddWithValue("@IdZanr", filmZanr.IdFilm);
+            command.Parameters.AddWithValue("@IdFilm", filmZanr.IdZanr);
         }
 
         private static Collection<FilmZanr> Read(SqlDataReader reader)

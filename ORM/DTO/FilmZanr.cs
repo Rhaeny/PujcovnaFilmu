@@ -2,7 +2,7 @@
 {
     public class FilmZanr
     {
-        public int IdFilm { get; set; }
         public int IdZanr { get; set; }
+        public int IdFilm { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using ORM.DAO;
+using ORM.DTO;
 
 namespace ORMtest
 {
@@ -9,10 +10,10 @@ namespace ORMtest
         {
             Database db = new Database();
             db.Connect();
-            var list = OsZamFilmTable.SelectBy(pDb: db);
+            var list = VydejceTable.SelectBy(pDb: db);
             foreach (var item in list)
             {
-                Console.WriteLine(item.IdFilm);
+                Console.WriteLine(item.Jmeno);
             }
             db.Close();
         }
