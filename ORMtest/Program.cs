@@ -10,10 +10,10 @@ namespace ORMtest
         {
             Database db = new Database();
             db.Connect();
-            var list = VydejceTable.SelectBy(pDb: db);
+            var list = RecenzeTable.SelectBy();
             foreach (var item in list)
             {
-                Console.WriteLine(item.Jmeno);
+                Console.WriteLine(item.IdFilm + " " + item.Datum + " " + item.Text);
             }
             db.Close();
         }
