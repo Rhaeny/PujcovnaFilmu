@@ -9,11 +9,10 @@ namespace ORMtest
         {
             Database db = new Database();
             db.Connect();
-
-            var zanry = ZanrTable.Select(db);
-            foreach (var zanr in zanry)
+            var list = OsZamFilmTable.SelectBy(pDb: db);
+            foreach (var item in list)
             {
-                Console.WriteLine(zanr.Nazev);
+                Console.WriteLine(item.IdFilm);
             }
             db.Close();
         }

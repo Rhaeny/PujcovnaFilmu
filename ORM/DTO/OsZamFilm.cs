@@ -1,6 +1,6 @@
 ﻿namespace ORM.DTO
 {
-    class OsZamFilm
+    public class OsZamFilm
     {
         public int IdFilm { get; set; }
         public int IdZam { get; set; }
