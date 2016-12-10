@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text;
+using System.Xml.Serialization;
 using ORM.DTO;
 
 namespace ORM.DAO
@@ -305,6 +308,20 @@ namespace ORM.DAO
                 objednavky.Add(objednavka);
             }
             return objednavky;
+        }
+
+        public static void ExportToXML(string fileName)
+        {
+            using (StringWriter stringWriter = new StringWriter(new StringBuilder()))
+            {
+                Collection<Objednavka> objednavky = Select();
+                foreach (var objednavka in objednavky)
+                {
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(Objednavka));
+                    xmlSerializer.Serialize(stringWriter, objednavka);
+                }
+                File.WriteAllText(fileName + ".xml", stringWriter.ToString());
+            }
         }
     }
 }

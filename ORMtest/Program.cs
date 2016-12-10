@@ -1,6 +1,5 @@
 ﻿using System;
 using ORM.DAO;
-using ORM.DTO;
 
 namespace ORMtest
 {
@@ -10,11 +9,14 @@ namespace ORMtest
         {
             Database db = new Database();
             db.Connect();
-            var list = ObjednavkaTable.Select();
+            var z = ZakaznikTable.Detail(1, db);
+            Console.WriteLine(z.Jmeno + " " + z.Prijmeni);
+            var list = z.GetObjednavky();
             foreach (var item in list)
             {
-                Console.WriteLine(item.IdFilm + " " + item.DatumObj + " " + item.Vraceno);
+                Console.WriteLine("\t" + item.IdFilm + " " + item.DatumObj + " " + item.Vraceno);
             }
+            ObjednavkaTable.ExportToXML("XMLdoc");
             db.Close();
         }
     }
