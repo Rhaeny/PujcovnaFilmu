@@ -5,39 +5,39 @@ using ORM.DTO;
 
 namespace ORM.DAO
 {
-    public class RecenzeTable
+    public class FrontaTable
     {
-        public static string TableName = "Recenze";
+        public static string TableName = "Fronta";
 
         public static string SqlSelect =
-            "SELECT Datum, Cislo, Text, IdZak, IdFilm " +
-            "FROM Recenze ";
+            "SELECT Datum, Poznamka, IdZak, IdFilm " +
+            "FROM Fronta ";
 
         public static string SqlSelectBy =
-            "SELECT Datum, Cislo, Text, IdZak, IdFilm " +
-            "FROM Recenze ";
+            "SELECT Datum, Poznamka, IdZak, IdFilm " +
+            "FROM Fronta ";
 
         public static string SqlDetail =
-            "SELECT Datum, Cislo, Text, IdZak, IdFilm " +
-            "FROM Recenze " +
+            "SELECT Datum, Poznamka, IdZak, IdFilm " +
+            "FROM Fronta " +
             "WHERE IdZak = @IdZak AND IdFilm = @IdFilm ";
 
         public static string SqlInsert =
-            "INSERT INTO Recenze " +
-            "VALUES(@Datum, @Cislo, @Text, @IdZak, @IdFilm) ";
+            "INSERT INTO Fronta " +
+            "VALUES(@Datum, @Poznamka, @IdZak, @IdFilm) ";
 
         public static string SqlUpdate =
-            "UPDATE Recenze " +
-            "SET Datum = @Datum, Cislo = @Cislo, Text = @Text " +
+            "UPDATE Fronta " +
+            "SET Datum = @Datum, Poznamka = @Poznamka " +
             "WHERE IdZak = @IdZak AND IdFilm = @IdFilm ";
 
         public static string SqlDelete =
-            "DELETE FROM Recenze " +
+            "DELETE FROM Fronta " +
             "WHERE IdZak = @IdZak AND IdFilm = @IdFilm ";
 
         #region Statické metody
 
-        public static int Insert(Recenze recenze, Database pDb = null)
+        public static int Insert(Fronta fronta, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -51,7 +51,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlInsert);
-            PrepareCommand(command, recenze);
+            PrepareCommand(command, fronta);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -62,7 +62,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static int Update(Recenze recenze, Database pDb = null)
+        public static int Update(Fronta fronta, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -76,7 +76,7 @@ namespace ORM.DAO
             }
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
-            PrepareCommand(command, recenze);
+            PrepareCommand(command, fronta);
             int ret = db.ExecuteNonQuery(command);
 
             if (pDb == null)
@@ -87,7 +87,7 @@ namespace ORM.DAO
             return ret;
         }
 
-        public static Collection<Recenze> Select(Database pDb = null)
+        public static Collection<Fronta> Select(Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -103,7 +103,7 @@ namespace ORM.DAO
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Recenze> recenzes = Read(reader);
+            Collection<Fronta> fronty = Read(reader);
             reader.Close();
 
             if (pDb == null)
@@ -111,10 +111,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return recenzes;
+            return fronty;
         }
 
-        public static Collection<Recenze> SelectBy(int? idZak = null, int? idFilm = null, int? cislo = null, Database pDb = null)
+        public static Collection<Fronta> SelectBy(int? idZak = null, int? idFilm = null, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -143,15 +143,6 @@ namespace ORM.DAO
                     SqlSelectBy += "WHERE IdFilm = @IdFilm ";
                 }
             }
-            if (cislo != null)
-            {
-                if (first)
-                    SqlSelectBy += "AND Cislo = @Cislo ";
-                else
-                {
-                    SqlSelectBy += "WHERE Cislo = @Cislo ";
-                }
-            }
 
             SqlCommand command = db.CreateCommand(SqlSelectBy);
 
@@ -159,12 +150,10 @@ namespace ORM.DAO
                 command.Parameters.AddWithValue("@IdZak", idZak);
             if (idFilm != null)
                 command.Parameters.AddWithValue("@IdFilm", idFilm);
-            if (cislo != null)
-                command.Parameters.AddWithValue("@Cislo", cislo);
 
             SqlDataReader reader = db.Select(command);
 
-            Collection<Recenze> recenzes = Read(reader);
+            Collection<Fronta> fronty = Read(reader);
             reader.Close();
 
             SqlSelectBy = SqlSelect;
@@ -174,10 +163,10 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return recenzes;
+            return fronty;
         }
 
-        public static Recenze Detail(int idZak, int idFilm, Database pDb = null)
+        public static Fronta Detail(int idZak, int idFilm, Database pDb = null)
         {
             Database db;
             if (pDb == null)
@@ -196,11 +185,11 @@ namespace ORM.DAO
             command.Parameters.AddWithValue("@IdFilm", idFilm);
             SqlDataReader reader = db.Select(command);
 
-            Collection<Recenze> recenzes = Read(reader);
-            Recenze recenze = null;
-            if (recenzes.Count == 1)
+            Collection<Fronta> fronty = Read(reader);
+            Fronta fronta = null;
+            if (fronty.Count == 1)
             {
-                recenze = recenzes[0];
+                fronta = fronty[0];
             }
             reader.Close();
 
@@ -209,7 +198,7 @@ namespace ORM.DAO
                 db.Close();
             }
 
-            return recenze;
+            return fronta;
         }
 
         public static int Delete(int idZak, int idFilm, Database pDb = null)
@@ -240,34 +229,32 @@ namespace ORM.DAO
 
         #endregion
 
-        private static void PrepareCommand(SqlCommand command, Recenze recenze)
+        private static void PrepareCommand(SqlCommand command, Fronta fronta)
         {
-            command.Parameters.AddWithValue("@Datum", recenze.Datum);
-            command.Parameters.AddWithValue("@Cislo", recenze.Cislo);
-            command.Parameters.AddWithValue("@Text", recenze.Text == null ? DBNull.Value : (object)recenze.Text);
-            command.Parameters.AddWithValue("@IdZak", recenze.IdZak);
-            command.Parameters.AddWithValue("@IdFilm", recenze.IdFilm);
+            command.Parameters.AddWithValue("@Datum", fronta.Datum);
+            command.Parameters.AddWithValue("@Poznamka", fronta.Poznamka == null ? DBNull.Value : (object)fronta.Poznamka);
+            command.Parameters.AddWithValue("@IdZak", fronta.IdZak);
+            command.Parameters.AddWithValue("@IdFilm", fronta.IdFilm);
         }
 
-        private static Collection<Recenze> Read(SqlDataReader reader)
+        private static Collection<Fronta> Read(SqlDataReader reader)
         {
-            Collection<Recenze> recenzes = new Collection<Recenze>();
+            Collection<Fronta> fronty = new Collection<Fronta>();
 
             while (reader.Read())
             {
-                Recenze recenze = new Recenze();
+                Fronta fronta = new Fronta();
                 int i = -1;
-                recenze.Datum = reader.GetDateTime(++i);
-                recenze.Cislo = reader.GetInt32(++i);
+                fronta.Datum = reader.GetDateTime(++i);
                 if (!reader.IsDBNull(++i))
                 {
-                    recenze.Text = reader.GetString(i);
+                    fronta.Poznamka = reader.GetString(i);
                 }
-                recenze.IdZak = reader.GetInt32(++i);
-                recenze.IdFilm = reader.GetInt32(++i);
-                recenzes.Add(recenze);
+                fronta.IdZak = reader.GetInt32(++i);
+                fronta.IdFilm = reader.GetInt32(++i);
+                fronty.Add(fronta);
             }
-            return recenzes;
+            return fronty;
         }
     }
 }
