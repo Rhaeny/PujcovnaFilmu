@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ORM.DTO
+namespace DTO
 {
     public class Fronta
     {

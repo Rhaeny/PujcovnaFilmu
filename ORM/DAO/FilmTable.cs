@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using ORM.DTO;
+using DTO;
 
 namespace ORM.DAO
 {

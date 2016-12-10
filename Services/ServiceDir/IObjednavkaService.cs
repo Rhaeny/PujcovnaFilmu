@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
+using DTO;
 using ORM.DAO;
-using ORM.DTO;
 
 namespace Services.ServiceDir
 {

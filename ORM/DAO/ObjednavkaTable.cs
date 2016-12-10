@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
-using ORM.DTO;
+using DTO;
 
 namespace ORM.DAO
 {

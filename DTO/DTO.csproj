@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6890F072-7605-452C-969A-41ECBDFE73DD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{EB7397A4-06DA-4930-9D21-76EAF84E922D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ORMtest</RootNamespace>
-    <AssemblyName>ORMtest</AssemblyName>
+    <RootNamespace>DTO</RootNamespace>
+    <AssemblyName>DTO</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Film.cs" />
+    <Compile Include="FilmZanr.cs" />
+    <Compile Include="Fronta.cs" />
+    <Compile Include="Objednavka.cs" />
+    <Compile Include="Osoba.cs" />
+    <Compile Include="OsZamFilm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{EB7397A4-06DA-4930-9D21-76EAF84E922D}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ORM\ORM.csproj">
-      <Project>{F2D72F06-F3A1-4B1D-934B-E0B08C8C880C}</Project>
-      <Name>ORM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{C7C9CCDA-4B90-49B0-8F4D-FE6AC63714B0}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
+    <Compile Include="Recenze.cs" />
+    <Compile Include="Vydejce.cs" />
+    <Compile Include="Zakaznik.cs" />
+    <Compile Include="Zamestnani.cs" />
+    <Compile Include="Zanr.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

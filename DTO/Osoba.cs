@@ -1,4 +1,4 @@
-﻿    namespace ORM.DTO
+﻿namespace DTO
 {
     public class Osoba
     {

@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using ORM.DAO;
-
-namespace ORM.DTO
+﻿namespace DTO
 {
     public class Zakaznik
     {
@@ -11,7 +8,7 @@ namespace ORM.DTO
         public string Email { get; set; }
         public string Telefon { get; set; }
 
-        private Collection<Objednavka> _objednavky;
+        /*private Collection<Objednavka> _objednavky;
         public Collection<Objednavka> GetObjednavky(Database pDb = null)
         {
             if (_objednavky == null)
@@ -19,6 +16,6 @@ namespace ORM.DTO
                 _objednavky = ObjednavkaTable.SelectBy(idZak: IdZak, pDb: pDb);
 ;           }
             return _objednavky;
-        }
+        }*/
     }
 }

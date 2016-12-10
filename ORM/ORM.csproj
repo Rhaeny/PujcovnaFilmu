@@ -53,20 +53,14 @@
     <Compile Include="DAO\ZakaznikTable.cs" />
     <Compile Include="DAO\ZamestnaniTable.cs" />
     <Compile Include="DAO\ZanrTable.cs" />
-    <Compile Include="DTO\Film.cs" />
-    <Compile Include="DTO\FilmZanr.cs" />
-    <Compile Include="DTO\Fronta.cs" />
-    <Compile Include="DTO\Objednavka.cs" />
-    <Compile Include="DTO\Osoba.cs" />
-    <Compile Include="DTO\OsZamFilm.cs" />
-    <Compile Include="DTO\Recenze.cs" />
-    <Compile Include="DTO\Vydejce.cs" />
-    <Compile Include="DTO\Zakaznik.cs" />
-    <Compile Include="DTO\Zamestnani.cs" />
-    <Compile Include="DTO\Zanr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{EB7397A4-06DA-4930-9D21-76EAF84E922D}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
