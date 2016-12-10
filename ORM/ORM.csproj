@@ -45,6 +45,7 @@
     <Compile Include="DAO\FilmTable.cs" />
     <Compile Include="DAO\FilmZanrTable.cs" />
     <Compile Include="DAO\FrontaTable.cs" />
+    <Compile Include="DAO\ObjednavkaTable.cs" />
     <Compile Include="DAO\OsobaTable.cs" />
     <Compile Include="DAO\OsZamFilmTable.cs" />
     <Compile Include="DAO\RecenzeTable.cs" />
