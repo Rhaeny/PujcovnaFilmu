@@ -289,12 +289,12 @@ namespace ORM.DAO
                 objednavka.IdObj = reader.GetInt32(++i);
                 objednavka.DatumObj = reader.GetDateTime(++i);
                 objednavka.DobaPujceni = reader.GetInt32(++i);
-                objednavka.Vydano = reader.GetChar(++i);
+                objednavka.Vydano = reader.GetBoolean(++i);
                 if (!reader.IsDBNull(++i))
                 {
                     objednavka.DatumVydani = reader.GetDateTime(i);
                 }
-                objednavka.Vraceno = reader.GetChar(++i);
+                objednavka.Vraceno = reader.GetBoolean(++i);
                 if (!reader.IsDBNull(++i))
                 {
                     objednavka.DatumVraceni = reader.GetDateTime(i);

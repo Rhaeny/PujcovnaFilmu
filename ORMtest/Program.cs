@@ -10,10 +10,10 @@ namespace ORMtest
         {
             Database db = new Database();
             db.Connect();
-            var list = FrontaTable.Select();
+            var list = ObjednavkaTable.Select();
             foreach (var item in list)
             {
-                Console.WriteLine(item.IdFilm + " " + item.Datum + " " + item.Poznamka);
+                Console.WriteLine(item.IdFilm + " " + item.DatumObj + " " + item.Vraceno);
             }
             db.Close();
         }
