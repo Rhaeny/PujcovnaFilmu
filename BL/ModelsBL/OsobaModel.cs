@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using DTO;
-using Services.ServiceDir;
+﻿using DTO;
 
 namespace BL.ModelsBL
 {

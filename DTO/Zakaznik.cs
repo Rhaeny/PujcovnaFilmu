@@ -9,6 +9,5 @@ namespace DTO
         public string Prijmeni { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
-        public Collection<Objednavka> Objednavky { get; set; }
     }
 }

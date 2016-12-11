@@ -41,12 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassesBL\FilmBL.cs" />
-    <Compile Include="ClassesBL\OsobaBL.cs" />
+    <Compile Include="ClassesBL\ObjednavkaBL.cs" />
+    <Compile Include="ClassesBL\ZakaznikBL.cs" />
     <Compile Include="ModelsBL\FilmModel.cs" />
     <Compile Include="ModelsBL\FrontaModel.cs" />
+    <Compile Include="ModelsBL\ObjednavkaModel.cs" />
     <Compile Include="ModelsBL\OsobaModel.cs" />
     <Compile Include="ModelsBL\OsZamFilmModel.cs" />
     <Compile Include="ModelsBL\RecenzeModel.cs" />
+    <Compile Include="ModelsBL\ZakaznikModel.cs" />
     <Compile Include="ModelsBL\ZamestnaniModel.cs" />
     <Compile Include="ModelsBL\ZanrModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
