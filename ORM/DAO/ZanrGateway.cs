@@ -32,95 +32,51 @@ namespace ORM.DAO
 
         #region Statické metody
 
-        public static int Insert(Zanr zanr, Database pDb = null)
+        public static int Insert(Zanr zanr)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlInsert);
             PrepareCommand(command, zanr);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static int Update(Zanr zanr, Database pDb = null)
+        public static int Update(Zanr zanr)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
             PrepareCommand(command, zanr);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static Collection<Zanr> Select(Database pDb = null)
+        public static Collection<Zanr> Select()
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
             Collection<Zanr> zanry = Read(reader);
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return zanry;
         }
 
-        public static Zanr Detail(int idZanr, Database pDb = null)
+        public static Zanr Detail(int idZanr)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
@@ -134,37 +90,21 @@ namespace ORM.DAO
                 zanr = zanry[0];
             }
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return zanr;
         }
 
-        public static int Delete(int idZanr, Database pDb = null)
+        public static int Delete(int idZanr)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDelete);
             command.Parameters.AddWithValue("@IdZanr", idZanr);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 

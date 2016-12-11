@@ -37,95 +37,51 @@ namespace ORM.DAO
 
         #region Statické metody
 
-        public static int Insert(Zakaznik zakaznik, Database pDb = null)
+        public static int Insert(Zakaznik zakaznik)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlInsert);
             PrepareCommand(command, zakaznik);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static int Update(Zakaznik zakaznik, Database pDb = null)
+        public static int Update(Zakaznik zakaznik)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
             PrepareCommand(command, zakaznik);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static Collection<Zakaznik> Select(Database pDb = null)
+        public static Collection<Zakaznik> Select()
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
             Collection<Zakaznik> zakaznici = Read(reader);
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return zakaznici;
         }
 
-        public static Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
+        public static Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "")
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             bool first = false;
 
@@ -169,27 +125,15 @@ namespace ORM.DAO
             reader.Close();
 
             SqlSelectBy = SqlSelect;
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return zakaznici;
         }
 
-        public static Zakaznik Detail(int idZak, Database pDb = null)
+        public static Zakaznik Detail(int idZak)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
@@ -203,37 +147,21 @@ namespace ORM.DAO
                 zakaznik = zakaznici[0];
             }
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return zakaznik;
         }
 
-        public static int Delete(int idZak, Database pDb = null)
+        public static int Delete(int idZak)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDelete);
             command.Parameters.AddWithValue("@IdZak", idZak);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 

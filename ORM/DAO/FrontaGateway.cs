@@ -37,95 +37,51 @@ namespace ORM.DAO
 
         #region Statické metody
 
-        public static int Insert(Fronta fronta, Database pDb = null)
+        public static int Insert(Fronta fronta)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlInsert);
             PrepareCommand(command, fronta);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static int Update(Fronta fronta, Database pDb = null)
+        public static int Update(Fronta fronta)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
             PrepareCommand(command, fronta);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static Collection<Fronta> Select(Database pDb = null)
+        public static Collection<Fronta> Select()
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
             Collection<Fronta> fronty = Read(reader);
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return fronty;
         }
 
-        public static Collection<Fronta> SelectBy(int? idZak = null, int? idFilm = null, Database pDb = null)
+        public static Collection<Fronta> SelectBy(int? idZak = null, int? idFilm = null)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             bool first = false;
 
@@ -157,27 +113,15 @@ namespace ORM.DAO
             reader.Close();
 
             SqlSelectBy = SqlSelect;
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return fronty;
         }
 
-        public static Fronta Detail(int idZak, int idFilm, Database pDb = null)
+        public static Fronta Detail(int idZak, int idFilm)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
@@ -192,38 +136,22 @@ namespace ORM.DAO
                 fronta = fronty[0];
             }
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return fronta;
         }
 
-        public static int Delete(int idZak, int idFilm, Database pDb = null)
+        public static int Delete(int idZak, int idFilm)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDelete);
             command.Parameters.AddWithValue("@IdZak", idZak);
             command.Parameters.AddWithValue("@IdFilm", idFilm);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 

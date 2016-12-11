@@ -31,71 +31,39 @@ namespace ORM.DAO
 
         #region Statické metody
 
-        public static int Insert(OsZamFilm osZamFilm, Database pDb = null)
+        public static int Insert(OsZamFilm osZamFilm)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlInsert);
             PrepareCommand(command, osZamFilm);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static Collection<OsZamFilm> Select(Database pDb = null)
+        public static Collection<OsZamFilm> Select()
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
             Collection<OsZamFilm> osZamFilms = Read(reader);
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return osZamFilms;
         }
 
         public static Collection<OsZamFilm> SelectBy(int? idZam = null, int? idFilm = null,
-            int? idOsoba = null, Database pDb = null)
+            int? idOsoba = null)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             bool first = false;
 
@@ -139,27 +107,15 @@ namespace ORM.DAO
             reader.Close();
 
             SqlSelectBy = SqlSelect;
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return osZamFilms;
         }
 
-        public static OsZamFilm Detail(int idZam, int idFilm, int idOsoba, Database pDb = null)
+        public static OsZamFilm Detail(int idZam, int idFilm, int idOsoba)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
@@ -175,39 +131,23 @@ namespace ORM.DAO
                 osZamFilm = osZamFilms[0];
             }
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return osZamFilm;
         }
 
-        public static int Delete(int idZam, int idFilm, int idOsoba, Database pDb = null)
+        public static int Delete(int idZam, int idFilm, int idOsoba)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDelete);
             command.Parameters.AddWithValue("@IdZam", idZam);
             command.Parameters.AddWithValue("@IdFilm", idFilm);
             command.Parameters.AddWithValue("@IdOsoba", idOsoba);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 

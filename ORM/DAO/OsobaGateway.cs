@@ -37,95 +37,51 @@ namespace ORM.DAO
 
         #region Statické metody
 
-        public static int Insert(Osoba osoba, Database pDb = null)
+        public static int Insert(Osoba osoba)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlInsert);
             PrepareCommand(command, osoba);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static int Update(Osoba osoba, Database pDb = null)
+        public static int Update(Osoba osoba)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlUpdate);
             PrepareCommand(command, osoba);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
-        public static Collection<Osoba> Select(Database pDb = null)
+        public static Collection<Osoba> Select()
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlSelect);
             SqlDataReader reader = db.Select(command);
 
             Collection<Osoba> osoby = Read(reader);
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return osoby;
         }
 
-        public static Collection<Osoba> SelectBy(string jmeno = "", string prijmeni = "", Database pDb = null)
+        public static Collection<Osoba> SelectBy(string jmeno = "", string prijmeni = "")
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             bool first = false;
 
@@ -157,27 +113,15 @@ namespace ORM.DAO
             reader.Close();
 
             SqlSelectBy = SqlSelect;
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return osoby;
         }
 
-        public static Osoba Detail(int idOsoba, Database pDb = null)
+        public static Osoba Detail(int idOsoba)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDetail);
 
@@ -191,37 +135,21 @@ namespace ORM.DAO
                 osoba = osoby[0];
             }
             reader.Close();
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return osoba;
         }
 
-        public static int Delete(int idOsoba, Database pDb = null)
+        public static int Delete(int idOsoba)
         {
-            Database db;
-            if (pDb == null)
-            {
-                db = new Database();
-                db.Connect();
-            }
-            else
-            {
-                db = pDb;
-            }
+            var db = new Database();
+            db.Connect();
 
             SqlCommand command = db.CreateCommand(SqlDelete);
             command.Parameters.AddWithValue("@IdOsoba", idOsoba);
             int ret = db.ExecuteNonQuery(command);
-
-            if (pDb == null)
-            {
-                db.Close();
-            }
-
+            
+            db.Close();
             return ret;
         }
 
