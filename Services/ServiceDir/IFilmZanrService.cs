@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
 using DTO;
-using ORM.DAO;
 
 namespace Services.ServiceDir
 {
@@ -9,9 +8,9 @@ namespace Services.ServiceDir
     public interface IFilmZanrService
     {
         [OperationContract]
-        int Insert(FilmZanr filmZanr, Database pDb = null);
-        Collection<FilmZanr> Select(Database pDb = null);
-        Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null, Database pDb = null);
-        int Delete(int idFilm, int idZanr, Database pDb = null);
+        int Insert(FilmZanr filmZanr);
+        Collection<FilmZanr> Select();
+        Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null);
+        int Delete(int idFilm, int idZanr);
     }
 }

@@ -6,34 +6,34 @@ namespace Services.ServiceDir
 {
     public class RecenzeService : IRecenzeService
     {
-        public int Insert(Recenze recenze, Database pDb = null)
+        public int Insert(Recenze recenze)
         {
-            return RecenzeGateway.Insert(recenze, pDb);
+            return RecenzeGateway.Insert(recenze);
         }
 
-        public int Update(Recenze recenze, Database pDb = null)
+        public int Update(Recenze recenze)
         {
-            return RecenzeGateway.Update(recenze, pDb);
+            return RecenzeGateway.Update(recenze);
         }
 
-        public Collection<Recenze> Select(Database pDb = null)
+        public Collection<Recenze> Select()
         {
-            return RecenzeGateway.Select(pDb);
+            return RecenzeGateway.Select();
         }
 
-        public Collection<Recenze> SelectBy(int? idZak = null, int? idFilm = null, int? cislo = null, Database pDb = null)
+        public Collection<Recenze> SelectBy(int? idZak = null, int? idFilm = null, int? cislo = null)
         {
-            return RecenzeGateway.SelectBy(idZak, idFilm, cislo, pDb);
+            return RecenzeGateway.SelectBy(idZak, idFilm, cislo);
         }
 
-        public Recenze Detail(int idZak, int idFilm, Database pDb = null)
+        public Recenze Detail(int idZak, int idFilm)
         {
-            return RecenzeGateway.Detail(idZak, idFilm, pDb);
+            return RecenzeGateway.Detail(idZak, idFilm);
         }
 
-        public int Delete(int idZak, int idFilm, Database pDb = null)
+        public int Delete(int idZak, int idFilm)
         {
-            return RecenzeGateway.Delete(idZak, idFilm, pDb);
+            return RecenzeGateway.Delete(idZak, idFilm);
         }
     }
 }

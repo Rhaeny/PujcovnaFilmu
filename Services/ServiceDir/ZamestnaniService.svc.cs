@@ -6,29 +6,29 @@ namespace Services.ServiceDir
 {
     public class ZamestnaniService : IZamestnaniService
     {
-        public int Insert(Zamestnani zam, Database pDb = null)
+        public int Insert(Zamestnani zam)
         {
-            return ZamestnaniGateway.Insert(zam, pDb);
+            return ZamestnaniGateway.Insert(zam);
         }
 
-        public int Update(Zamestnani zam, Database pDb = null)
+        public int Update(Zamestnani zam)
         {
-            return ZamestnaniGateway.Update(zam, pDb);
+            return ZamestnaniGateway.Update(zam);
         }
 
-        public Collection<Zamestnani> Select(Database pDb = null)
+        public Collection<Zamestnani> Select()
         {
-            return ZamestnaniGateway.Select(pDb);
+            return ZamestnaniGateway.Select();
         }
 
-        public Zamestnani Detail(int idZam, Database pDb = null)
+        public Zamestnani Detail(int idZam)
         {
-            return ZamestnaniGateway.Detail(idZam, pDb);
+            return ZamestnaniGateway.Detail(idZam);
         }
 
-        public int Delete(int idZam, Database pDb = null)
+        public int Delete(int idZam)
         {
-            return ZamestnaniGateway.Delete(idZam, pDb);
+            return ZamestnaniGateway.Delete(idZam);
         }
     }
 }

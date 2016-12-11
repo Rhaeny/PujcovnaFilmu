@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
 using DTO;
-using ORM.DAO;
 
 namespace Services.ServiceDir
 {
@@ -9,10 +8,10 @@ namespace Services.ServiceDir
     public interface IZanrService
     {
         [OperationContract]
-        int Insert(Zanr zanr, Database pDb = null);
-        int Update(Zanr zanr, Database pDb = null);
-        Collection<Zanr> Select(Database pDb = null);
-        Zanr Detail(int idZanr, Database pDb = null);
-        int Delete(int idZanr, Database pDb = null);
+        int Insert(Zanr zanr);
+        int Update(Zanr zanr);
+        Collection<Zanr> Select();
+        Zanr Detail(int idZanr);
+        int Delete(int idZanr);
     }
 }

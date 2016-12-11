@@ -6,34 +6,34 @@ namespace Services.ServiceDir
 {
     public class OsobaService : IOsobaService
     {
-        public int Insert(Osoba osoba, Database pDb = null)
+        public int Insert(Osoba osoba)
         {
-            return OsobaGateway.Insert(osoba, pDb);
+            return OsobaGateway.Insert(osoba);
         }
 
-        public int Update(Osoba osoba, Database pDb = null)
+        public int Update(Osoba osoba)
         {
-            return OsobaGateway.Update(osoba, pDb);
+            return OsobaGateway.Update(osoba);
         }
 
-        public Collection<Osoba> Select(Database pDb = null)
+        public Collection<Osoba> Select()
         {
-            return OsobaGateway.Select(pDb);
+            return OsobaGateway.Select();
         }
 
-        public Collection<Osoba> SelectBy(string jmeno = "", string prijmeni = "", Database pDb = null)
+        public Collection<Osoba> SelectBy(string jmeno = "", string prijmeni = "")
         {
-            return OsobaGateway.SelectBy(jmeno, prijmeni, pDb);
+            return OsobaGateway.SelectBy(jmeno, prijmeni);
         }
 
-        public Osoba Detail(int idOsoba, Database pDb = null)
+        public Osoba Detail(int idOsoba)
         {
-            return OsobaGateway.Detail(idOsoba, pDb);
+            return OsobaGateway.Detail(idOsoba);
         }
 
-        public int Delete(int idOsoba, Database pDb = null)
+        public int Delete(int idOsoba)
         {
-            return OsobaGateway.Delete(idOsoba, pDb);
+            return OsobaGateway.Delete(idOsoba);
         }
     }
 }

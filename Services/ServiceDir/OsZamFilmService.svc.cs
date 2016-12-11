@@ -6,30 +6,29 @@ namespace Services.ServiceDir
 {
     public class OsZamFilmService : IOsZamFilmService
     {
-        public int Insert(OsZamFilm osZamFilm, Database pDb = null)
+        public int Insert(OsZamFilm osZamFilm)
         {
-            return OsZamFilmGateway.Insert(osZamFilm, pDb);
+            return OsZamFilmGateway.Insert(osZamFilm);
         }
 
-        public Collection<OsZamFilm> Select(Database pDb = null)
+        public Collection<OsZamFilm> Select()
         {
-            return OsZamFilmGateway.Select(pDb);
+            return OsZamFilmGateway.Select();
         }
 
-        public Collection<OsZamFilm> SelectBy(int? idZam = null, int? idFilm = null, int? idOsoba = null,
-            Database pDb = null)
+        public Collection<OsZamFilm> SelectBy(int? idZam = null, int? idFilm = null, int? idOsoba = null)
         {
             return OsZamFilmGateway.SelectBy(idZam, idFilm, idOsoba);
         }
 
-        public OsZamFilm Detail(int idZam, int idFilm, int idOsoba, Database pDb = null)
+        public OsZamFilm Detail(int idZam, int idFilm, int idOsoba)
         {
-            return OsZamFilmGateway.Detail(idZam, idFilm, idOsoba, pDb);
+            return OsZamFilmGateway.Detail(idZam, idFilm, idOsoba);
         }
 
-        public int Delete(int idZam, int idFilm, int idOsoba, Database pDb = null)
+        public int Delete(int idZam, int idFilm, int idOsoba)
         {
-            return OsZamFilmGateway.Delete(idZam, idFilm, idOsoba, pDb);
+            return OsZamFilmGateway.Delete(idZam, idFilm, idOsoba);
         }
     }
 }

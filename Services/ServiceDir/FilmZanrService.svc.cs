@@ -6,22 +6,22 @@ namespace Services.ServiceDir
 {
     public class FilmZanrService : IFilmZanrService
     {
-        public int Insert(FilmZanr filmZanr, Database pDb = null)
+        public int Insert(FilmZanr filmZanr)
         {
-            return FilmZanrGateway.Insert(filmZanr, pDb);
+            return FilmZanrGateway.Insert(filmZanr);
         }
 
-        public Collection<FilmZanr> Select(Database pDb = null)
+        public Collection<FilmZanr> Select()
         {
-            return FilmZanrGateway.Select(pDb);
+            return FilmZanrGateway.Select();
         }
 
-        public Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null, Database pDb = null)
+        public Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null)
         {
             return FilmZanrGateway.SelectBy(idZanr, idFilm);
         }
 
-        public int Delete(int idFilm, int idZanr, Database pDb = null)
+        public int Delete(int idFilm, int idZanr)
         {
             return FilmZanrGateway.Delete(idFilm, idZanr);
         }

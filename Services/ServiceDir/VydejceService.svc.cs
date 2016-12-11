@@ -6,34 +6,34 @@ namespace Services.ServiceDir
 {
     public class VydejceService : IVydejceService
     {
-        public int Insert(Vydejce vydejce, Database pDb = null)
+        public int Insert(Vydejce vydejce)
         {
-            return VydejceGateway.Insert(vydejce, pDb);
+            return VydejceGateway.Insert(vydejce);
         }
 
-        public int Update(Vydejce vydejce, Database pDb = null)
+        public int Update(Vydejce vydejce)
         {
-            return VydejceGateway.Update(vydejce, pDb);
+            return VydejceGateway.Update(vydejce);
         }
 
-        public Collection<Vydejce> Select(Database pDb = null)
+        public Collection<Vydejce> Select()
         {
-            return VydejceGateway.Select(pDb);
+            return VydejceGateway.Select();
         }
 
-        public Collection<Vydejce> SelectBy(string jmeno = "", string prijmeni = "", string email = "", Database pDb = null)
+        public Collection<Vydejce> SelectBy(string jmeno = "", string prijmeni = "", string email = "")
         {
-            return VydejceGateway.SelectBy(jmeno, prijmeni, email, pDb);
+            return VydejceGateway.SelectBy(jmeno, prijmeni, email);
         }
 
-        public Vydejce Detail(int idVydejce, Database pDb = null)
+        public Vydejce Detail(int idVydejce)
         {
-            return VydejceGateway.Detail(idVydejce, pDb);
+            return VydejceGateway.Detail(idVydejce);
         }
 
-        public int Delete(int idVydejce, Database pDb = null)
+        public int Delete(int idVydejce)
         {
-            return VydejceGateway.Delete(idVydejce, pDb);
+            return VydejceGateway.Delete(idVydejce);
         }
     }
 }

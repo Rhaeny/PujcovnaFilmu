@@ -6,29 +6,29 @@ namespace Services.ServiceDir
 {
     public class ZanrService : IZanrService
     {
-        public int Insert(Zanr zanr, Database pDb = null)
+        public int Insert(Zanr zanr)
         {
-            return ZanrGateway.Insert(zanr, pDb);
+            return ZanrGateway.Insert(zanr);
         }
 
-        public int Update(Zanr zanr, Database pDb = null)
+        public int Update(Zanr zanr)
         {
-            return ZanrGateway.Update(zanr, pDb);
+            return ZanrGateway.Update(zanr);
         }
 
-        public Collection<Zanr> Select(Database pDb = null)
+        public Collection<Zanr> Select()
         {
-            return ZanrGateway.Select(pDb);
+            return ZanrGateway.Select();
         }
 
-        public Zanr Detail(int idZanr, Database pDb = null)
+        public Zanr Detail(int idZanr)
         {
-            return ZanrGateway.Detail(idZanr, pDb);
+            return ZanrGateway.Detail(idZanr);
         }
 
-        public int Delete(int idZanr, Database pDb = null)
+        public int Delete(int idZanr)
         {
-            return ZanrGateway.Delete(idZanr, pDb);
+            return ZanrGateway.Delete(idZanr);
         }
     }
 }

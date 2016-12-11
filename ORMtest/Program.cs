@@ -1,5 +1,4 @@
 ﻿using System;
-using ORM.DAO;
 using Services.ServiceDir;
 
 namespace ORMtest
@@ -8,13 +7,10 @@ namespace ORMtest
     {
         static void Main(string[] args)
         {
-            Database db = new Database();
-            db.Connect();
             IFilmService fs = new FilmService();
-            var z = fs.Detail(1, db);
+            var z = fs.Detail(1);
             Console.WriteLine(z.IdFilm + " " + z.Nazev);
             //ObjednavkaTable.ExportToXML("XMLdoc");
-            db.Close();
         }
     }
 }

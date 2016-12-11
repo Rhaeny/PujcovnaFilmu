@@ -6,34 +6,34 @@ namespace Services.ServiceDir
 {
     public class FrontaService : IFrontaService
     {
-        public int Insert(Fronta fronta, Database pDb = null)
+        public int Insert(Fronta fronta)
         {
-            return FrontaGateway.Insert(fronta, pDb);
+            return FrontaGateway.Insert(fronta);
         }
 
-        public int Update(Fronta fronta, Database pDb = null)
+        public int Update(Fronta fronta)
         {
-            return FrontaGateway.Update(fronta, pDb);
+            return FrontaGateway.Update(fronta);
         }
 
-        public Collection<Fronta> Select(Database pDb = null)
+        public Collection<Fronta> Select()
         {
-            return FrontaGateway.Select(pDb);
+            return FrontaGateway.Select();
         }
 
-        public Collection<Fronta> SelectBy(int? idZak = null, int? idFilm = null, Database pDb = null)
+        public Collection<Fronta> SelectBy(int? idZak = null, int? idFilm = null)
         {
-            return FrontaGateway.SelectBy(idZak, idFilm, pDb);
+            return FrontaGateway.SelectBy(idZak, idFilm);
         }
 
-        public Fronta Detail(int idZak, int idFilm, Database pDb = null)
+        public Fronta Detail(int idZak, int idFilm)
         {
-            return FrontaGateway.Detail(idZak, idFilm, pDb);
+            return FrontaGateway.Detail(idZak, idFilm);
         }
 
-        public int Delete(int idZak, int idFilm, Database pDb = null)
+        public int Delete(int idZak, int idFilm)
         {
-            return FrontaGateway.Delete(idZak, idFilm, pDb);
+            return FrontaGateway.Delete(idZak, idFilm);
         }
     }
 }

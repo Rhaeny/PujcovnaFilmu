@@ -6,35 +6,35 @@ namespace Services.ServiceDir
 {
     public class ObjednavkaService : IObjednavkaService
     {
-        public int Insert(Objednavka objednavka, Database pDb = null)
+        public int Insert(Objednavka objednavka)
         {
-            return ObjednavkaGateway.Insert(objednavka, pDb);
+            return ObjednavkaGateway.Insert(objednavka);
         }
 
-        public int Update(Objednavka objednavka, Database pDb = null)
+        public int Update(Objednavka objednavka)
         {
-            return ObjednavkaGateway.Update(objednavka, pDb);
+            return ObjednavkaGateway.Update(objednavka);
         }
 
-        public Collection<Objednavka> Select(Database pDb = null)
+        public Collection<Objednavka> Select()
         {
-            return ObjednavkaGateway.Select(pDb);
+            return ObjednavkaGateway.Select();
         }
 
-        public Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null,
-            int? idZak = null, int? idFilm = null, int? idVydejce = null, Database pDb = null)
+        public Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null, 
+            int? idZak = null, int? idFilm = null, int? idVydejce = null)
         {
-            return ObjednavkaGateway.SelectBy(vydano, vraceno, idZak, idFilm, idVydejce, pDb);
+            return ObjednavkaGateway.SelectBy(vydano, vraceno, idZak, idFilm, idVydejce);
         }
 
-        public Objednavka Detail(int idObj, Database pDb = null)
+        public Objednavka Detail(int idObj)
         {
-            return ObjednavkaGateway.Detail(idObj, pDb);
+            return ObjednavkaGateway.Detail(idObj);
         }
 
-        public int Delete(int idObj, Database pDb = null)
+        public int Delete(int idObj)
         {
-            return ObjednavkaGateway.Delete(idObj, pDb);
+            return ObjednavkaGateway.Delete(idObj);
         }
     }
 }

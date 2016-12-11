@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
 using DTO;
-using ORM.DAO;
 
 namespace Services.ServiceDir
 {
@@ -9,12 +8,11 @@ namespace Services.ServiceDir
     public interface IObjednavkaService
     {
         [OperationContract]
-        int Insert(Objednavka objednavka, Database pDb = null);
-        int Update(Objednavka objednavka, Database pDb = null);
-        Collection<Objednavka> Select(Database pDb = null);
-        Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null, int? idZak = null,
-            int? idFilm = null, int? idVydejce = null, Database pDb = null);
-        Objednavka Detail(int idObj, Database pDb = null);
-        int Delete(int idObj, Database pDb = null);
+        int Insert(Objednavka objednavka);
+        int Update(Objednavka objednavka);
+        Collection<Objednavka> Select();
+        Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null, int? idZak = null, int? idFilm = null, int? idVydejce = null);
+        Objednavka Detail(int idObj);
+        int Delete(int idObj);
     }
 }
