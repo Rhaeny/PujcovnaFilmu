@@ -99,6 +99,11 @@ namespace BL.ModelsBL
             }
         }
 
+        public FilmModel()
+        {
+            
+        }
+
         public FilmModel(Film film)
         {
             IdFilm = film.IdFilm;
