@@ -61,12 +61,12 @@ namespace ORM.DAO
 
             bool first = false;
 
-            if (idFilm != null)
+            if (idZanr != null)
             {
                 first = true;
                 SqlSelectBy += "WHERE IdZanr = @IdZanr ";
             }
-            if (idZanr != null)
+            if (idFilm != null)
             {
                 if (first)
                     SqlSelectBy += "AND IdFilm = @IdFilm ";
@@ -78,10 +78,10 @@ namespace ORM.DAO
 
             SqlCommand command = db.CreateCommand(SqlSelectBy);
 
-            if (idFilm != null)
-                command.Parameters.AddWithValue("@IdZanr", idFilm);
             if (idZanr != null)
-                command.Parameters.AddWithValue("@IdFilm", idZanr);
+                command.Parameters.AddWithValue("@IdZanr", idZanr);
+            if (idFilm != null)
+                command.Parameters.AddWithValue("@IdFilm", idFilm);
 
             SqlDataReader reader = db.Select(command);
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using Services.ServiceDir;
+using BL.ClassesBL;
 
 namespace ORMtest
 {
@@ -7,9 +7,17 @@ namespace ORMtest
     {
         static void Main(string[] args)
         {
-            IFilmService fs = new FilmService();
-            var z = fs.Detail(1);
-            Console.WriteLine(z.IdFilm + " " + z.Nazev);
+            FilmBL fs = new FilmBL();
+            var items = fs.Select();
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.IdFilm + " " + item.Nazev);
+                var zanry = item.GetFronta();
+                foreach (var zanr in zanry)
+                {
+                    Console.WriteLine("\t" + zanr.Poznamka);
+                }
+            }
             //ObjednavkaTable.ExportToXML("XMLdoc");
         }
     }
