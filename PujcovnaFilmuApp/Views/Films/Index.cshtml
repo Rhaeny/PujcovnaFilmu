@@ -31,9 +31,6 @@
                 @Html.DisplayNameFor(model => model.Zeme)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Popis)
-            </th>
-            <th>
                 Akce
             </th>
         </tr>
@@ -64,11 +61,8 @@
                     @Html.DisplayFor(modelItem => item.Zeme)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Popis)
-                </td>
-                <td>
                     <a href="@Url.Action("Edit", "Films", new {id = item.IdFilm}, null)" class="btn btn-info btn-xs">Edit</a>
-                    <a href="@Url.Action("Edit", "Films", new {id = item.IdFilm}, null)" class="btn btn-warning btn-xs">Delete</a>
+                    <a href="@Url.Action("Delete", "Films", new {id = item.IdFilm}, null)" class="btn btn-warning btn-xs">Delete</a>
                 </td>
             </tr>
         }

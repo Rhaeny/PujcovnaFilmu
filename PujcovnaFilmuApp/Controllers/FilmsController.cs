@@ -28,26 +28,27 @@ namespace PujcovnaFilmuApp.Controllers
         }
 
         // GET: Films/Create
-        /*public ActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
 
         // POST: Films/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(FilmModel film)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                FilmBL filmDB = new FilmBL();
+                filmDB.Insert(film);
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
-        }*/
+        }
 
         // GET: Films/Edit/5
         public ActionResult Edit(int id)
@@ -78,25 +79,31 @@ namespace PujcovnaFilmuApp.Controllers
         }
 
         // GET: Films/Delete/5
-        /*public ActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
-            return View();
+            FilmBL filmDB = new FilmBL();
+            FilmModel film = filmDB.Detail(id);
+            if (film == null)
+            {
+                return HttpNotFound();
+            }
+            return View(film);
         }
 
         // POST: Films/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, FilmModel film)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                FilmBL filmDB = new FilmBL();
+                filmDB.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
-        }*/
+        }
     }
 }

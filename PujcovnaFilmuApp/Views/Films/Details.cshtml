@@ -4,87 +4,107 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-xs-9 col-sm-9">
+            <h1>@Model.Nazev <small>(@Model.Rok)</small>
+            </h1>
+        </div>
+        <div class="col-xs-3 col-sm-3">
+            <h1>@Model.GetPrumerneHodnoceni()<small> /10</small></h1>
+        </div>
+    </div>
+    <p>
+        @Model.Popis
+    </p>
+</div>
 
 <div>
-    <h4>FilmModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IdFilm)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IdFilm)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nazev)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nazev)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rok)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rok)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cena)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cena)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Kusu)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Kusu)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Typ)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Typ)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Delka)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Delka)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Zeme)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Zeme)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Popis)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Popis)
-        </dd>
-
-    </dl>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="panel panel-default">
+                <div class="panel-body vertical-center">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="centering text-center">
+                                @Html.DisplayNameFor(model => model.Cena):
+                                @Html.DisplayFor(model => model.Cena) Kč
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="panel panel-default">
+                <div class="panel-body vertical-center">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="centering text-center">
+                                @Html.DisplayNameFor(model => model.Zeme):
+                                @Html.DisplayFor(model => model.Zeme)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="panel panel-default">
+                <div class="panel-body vertical-center">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="centering text-center">
+                                @Html.DisplayNameFor(model => model.Typ):
+                                @Html.DisplayFor(model => model.Typ)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="panel panel-default">
+                <div class="panel-body vertical-center">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="centering text-center">
+                                @Html.DisplayNameFor(model => model.Delka):
+                                @Html.DisplayFor(model => model.Delka) min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    @{
+        int i = 0;
+    }
+    @foreach (var item in @Model.GetRecenze())
+    {
+        if (i%2 == 0)
+        {
+            <blockquote>
+                <p>@item.Text</p>
+                <p>@item.Cislo /10</p>
+                <small>@item.GetZakaznik().Jmeno @item.GetZakaznik().Prijmeni (@item.Datum.ToString("dd.MM.yy"))</small>
+            </blockquote>
+        }
+        else
+        {
+            <blockquote class="blockquote-reverse">
+                <p>@item.Text</p>
+                <p>@item.Cislo /10</p>
+                <small>@item.GetZakaznik().Jmeno @item.GetZakaznik().Prijmeni (@item.Datum.ToString("dd.MM.yy"))</small>
+            </blockquote>
+        }
+        <br/>
+        i++;
+    }
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index", "Films")" class="btn btn-warning btn-sm">&laquo; Back to List</a>
+    <a href="@Url.Action("Edit", "Films", new {id = Model.IdFilm}, null)" class="btn btn-info btn-sm">Edit</a>
 </p>

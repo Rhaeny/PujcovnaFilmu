@@ -1,13 +1,13 @@
 ﻿@model BL.ModelsBL.FilmModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
 
-<h2>Edit @Model.Nazev</h2>
+<h2>Pridat Film</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
@@ -16,7 +16,7 @@
         <div class="form-group" style="visibility: hidden">
             @Html.LabelFor(model => model.IdFilm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IdFilm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.IdFilm, new { htmlAttributes = new { @class = "form-control", @Value = "0" } })
                 @Html.ValidationMessageFor(model => model.IdFilm, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -87,7 +87,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success btn-sm" />
+                <input type="submit" value="Create" class="btn btn-success btn-sm" />
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using DTO;
+using Services.ServiceDir;
 
 namespace BL.ModelsBL
 {
@@ -10,6 +11,21 @@ namespace BL.ModelsBL
         public DateTime Datum { get; set; }
         public int Cislo { get; set; }
         public string Text { get; set; }
+
+        private ZakaznikModel _zakaznik;
+        private ZakaznikService _zakaznikAdapter;
+
+        protected ZakaznikService ZakaznikAdapter
+        {
+            get
+            {
+                if (_zakaznikAdapter == null)
+                {
+                    _zakaznikAdapter = new ZakaznikService();
+                }
+                return _zakaznikAdapter;
+            }
+        }
 
         public RecenzeModel(Recenze recenze)
         {
@@ -31,6 +47,15 @@ namespace BL.ModelsBL
                 Text = Text
             };
             return recenze;
+        }
+
+        public ZakaznikModel GetZakaznik()
+        {
+            if (_zakaznik == null)
+            {
+                _zakaznik = new ZakaznikModel(ZakaznikAdapter.Detail(IdZak));
+            }
+            return _zakaznik;
         }
     }
 }

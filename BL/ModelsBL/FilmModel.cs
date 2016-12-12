@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using DTO;
 using Services.ServiceDir;
 
@@ -192,6 +193,13 @@ namespace BL.ModelsBL
                 }
             }
             return _fronta;
+        }
+
+        public double GetPrumerneHodnoceni()
+        {
+            GetRecenze();
+            int sum = _recenze.Sum(recenze => recenze.Cislo);
+            return (double)sum/_recenze.Count;
         }
     }
 }
