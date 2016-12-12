@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using DTO;
+using NullDTO;
 using ORM.DAO;
 
 namespace Services.ServiceDir
@@ -21,9 +22,9 @@ namespace Services.ServiceDir
             return FrontaGateway.Select();
         }
 
-        public Collection<Fronta> SelectBy(int? idZak = null, int? idFilm = null)
+        public Collection<Fronta> SelectBy(FrontaNull frontaNull)
         {
-            return FrontaGateway.SelectBy(idZak, idFilm);
+            return FrontaGateway.SelectBy(frontaNull.IdZak, frontaNull.IdFilm);
         }
 
         public Fronta Detail(int idZak, int idFilm)

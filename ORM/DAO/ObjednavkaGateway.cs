@@ -81,7 +81,7 @@ namespace ORM.DAO
             return objednavky;
         }
 
-        public static Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null,
+        public static Collection<Objednavka> SelectBy(bool? vydano = null, bool? vraceno = null,
             int? idZak = null, int? idFilm = null, int? idVydejce = null)
         {
             var db = new Database();

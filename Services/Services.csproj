@@ -171,6 +171,10 @@
       <Project>{EB7397A4-06DA-4930-9D21-76EAF84E922D}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NullDTO\NullDTO.csproj">
+      <Project>{A2EA9E3F-14B3-4D5E-BAE8-82811874C152}</Project>
+      <Name>NullDTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ORM\ORM.csproj">
       <Project>{F2D72F06-F3A1-4B1D-934B-E0B08C8C880C}</Project>
       <Name>ORM</Name>

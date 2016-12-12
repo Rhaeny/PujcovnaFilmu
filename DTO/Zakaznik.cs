@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace DTO
+﻿namespace DTO
 {
     public class Zakaznik
     {

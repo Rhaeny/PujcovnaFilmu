@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee5fea14-31f4-4927-873c-05276babba0b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/RecenzeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RecenzeService.xsd" MetadataType="Schema" ID="be7e3ed0-a227-44d5-a2bf-816c54223283" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/RecenzeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RecenzeService1.xsd" MetadataType="Schema" ID="e431b575-b06c-4cbe-a3ab-a9e3c08163c9" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/RecenzeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RecenzeService.disco" MetadataType="Disco" ID="ba521755-b145-4e13-b8a2-74cdc223fa35" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/RecenzeService.svc?disco" />
+    <MetadataFile FileName="RecenzeService.wsdl" MetadataType="Wsdl" ID="5374c06b-64d5-4947-85af-d88665b6ee24" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/RecenzeService.svc?wsdl" />
+    <MetadataFile FileName="RecenzeService2.xsd" MetadataType="Schema" ID="77809a1a-9f43-4358-bfd1-5673c4f776b5" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/RecenzeService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

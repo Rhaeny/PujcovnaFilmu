@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,11 +55,25 @@
     <Compile Include="ModelsBL\ZamestnaniModel.cs" />
     <Compile Include="ModelsBL\ZanrModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\FilmZanrReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RecenzeReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{EB7397A4-06DA-4930-9D21-76EAF84E922D}</Project>
       <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NullDTO\NullDTO.csproj">
+      <Project>{A2EA9E3F-14B3-4D5E-BAE8-82811874C152}</Project>
+      <Name>NullDTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ORM\ORM.csproj">
       <Project>{F2D72F06-F3A1-4B1D-934B-E0B08C8C880C}</Project>
@@ -67,6 +83,70 @@
       <Project>{C7C9CCDA-4B90-49B0-8F4D-FE6AC63714B0}</Project>
       <Name>Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\DTO.FilmZanr.datasource" />
+    <None Include="Service References\FilmZanrReference\FilmZanrService.wsdl" />
+    <None Include="Service References\FilmZanrReference\FilmZanrService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilmZanrReference\FilmZanrService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilmZanrReference\FilmZanrService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilmZanrReference\FilmZanrService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RecenzeReference\RecenzeService.wsdl" />
+    <None Include="Service References\RecenzeReference\RecenzeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RecenzeReference\RecenzeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RecenzeReference\RecenzeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FilmZanrReference\" />
+    <WCFMetadataStorage Include="Service References\RecenzeReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmZanrReference\FilmZanrService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmZanrReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmZanrReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmZanrReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecenzeReference\RecenzeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecenzeReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecenzeReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecenzeReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

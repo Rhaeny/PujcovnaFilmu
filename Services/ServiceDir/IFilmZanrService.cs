@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
 using DTO;
+using NullDTO;
 
 namespace Services.ServiceDir
 {
@@ -10,7 +11,7 @@ namespace Services.ServiceDir
         [OperationContract]
         int Insert(FilmZanr filmZanr);
         Collection<FilmZanr> Select();
-        Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null);
+        Collection<FilmZanr> SelectBy(FilmZanrNull filmZanrNull);
         int Delete(int idFilm, int idZanr);
     }
 }

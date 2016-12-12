@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca1d6c5e-34c1-4b76-8cfb-6d11ba91c3ba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/FilmZanrService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FilmZanrService3.xsd" MetadataType="Schema" ID="af3b9ebd-1f67-4801-b24c-0f05b6d395ab" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FilmZanrService2.xsd" MetadataType="Schema" ID="75c1bf71-a3bc-45cd-b462-0d314a3f5ce1" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FilmZanrService.xsd" MetadataType="Schema" ID="52464b2e-bff6-45f9-be56-1753d2f990f0" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FilmZanrService1.xsd" MetadataType="Schema" ID="f850ce1c-5971-46c0-87b4-ccf5e0635051" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FilmZanrService.disco" MetadataType="Disco" ID="3a1809f0-bac1-4ebc-a9cb-9b5bd0b5f374" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?disco" />
+    <MetadataFile FileName="FilmZanrService.wsdl" MetadataType="Wsdl" ID="b3c3bd63-7c75-4338-ab98-be666c49c3fc" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

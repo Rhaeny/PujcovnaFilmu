@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using DTO;
+using NullDTO;
 using ORM.DAO;
 
 namespace Services.ServiceDir
@@ -21,10 +22,10 @@ namespace Services.ServiceDir
             return ObjednavkaGateway.Select();
         }
 
-        public Collection<Objednavka> SelectBy(char? vydano = null, char? vraceno = null, 
-            int? idZak = null, int? idFilm = null, int? idVydejce = null)
+        public Collection<Objednavka> SelectBy(ObjednavkaNull objednavkaNull)
         {
-            return ObjednavkaGateway.SelectBy(vydano, vraceno, idZak, idFilm, idVydejce);
+            return ObjednavkaGateway.SelectBy(objednavkaNull.Vydano, objednavkaNull.Vraceno, objednavkaNull.IdZak,
+                objednavkaNull.IdFilm, objednavkaNull.IdVydejce);
         }
 
         public Objednavka Detail(int idObj)

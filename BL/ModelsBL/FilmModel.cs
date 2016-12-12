@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using BL.FilmZanrReference;
 using DTO;
+using NullDTO;
 using Services.ServiceDir;
 
 namespace BL.ModelsBL
@@ -21,20 +23,20 @@ namespace BL.ModelsBL
         private Collection<OsobaModel> _osoby;
         private Collection<RecenzeModel> _recenze;
         private Collection<FrontaModel> _fronta;
-        private FilmZanrService _filmZanrAdapter;
+        private FilmZanrServiceClient _filmZanrAdapter;
         private ZanrService _zanrAdapter;
         private OsZamFilmService _osZamFilmAdapter;
         private OsobaService _osobaAdapter;
         private RecenzeService _recenzeAdapter;
         private FrontaService _frontaAdapter;
 
-        protected FilmZanrService FilmZanrAdapter
+        protected FilmZanrServiceClient FilmZanrAdapter
         {
             get
             {
                 if (_filmZanrAdapter == null)
                 {
-                    _filmZanrAdapter = new FilmZanrService();
+                    _filmZanrAdapter = new FilmZanrServiceClient();
                 }
                 return _filmZanrAdapter;
             }
@@ -139,7 +141,8 @@ namespace BL.ModelsBL
         {
             if (_zanry == null)
             {
-                Collection<FilmZanr> filmZanry = FilmZanrAdapter.SelectBy(idFilm: IdFilm);
+                FilmZanrNull filmZanrNull = new FilmZanrNull {IdFilm = IdFilm};
+                Collection<FilmZanr> filmZanry = FilmZanrAdapter.SelectBy(filmZanrNull);
                 _zanry = new Collection<ZanrModel>();
                 foreach (var filmZanr in filmZanry)
                 {

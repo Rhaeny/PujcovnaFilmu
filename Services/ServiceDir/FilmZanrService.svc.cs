@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using DTO;
+using NullDTO;
 using ORM.DAO;
 
 namespace Services.ServiceDir
@@ -16,9 +17,9 @@ namespace Services.ServiceDir
             return FilmZanrGateway.Select();
         }
 
-        public Collection<FilmZanr> SelectBy(int? idZanr = null, int? idFilm = null)
+        public Collection<FilmZanr> SelectBy(FilmZanrNull filmZanrNull)
         {
-            return FilmZanrGateway.SelectBy(idZanr, idFilm);
+            return FilmZanrGateway.SelectBy(filmZanrNull.IdZanr, filmZanrNull.IdFilm);
         }
 
         public int Delete(int idFilm, int idZanr)
