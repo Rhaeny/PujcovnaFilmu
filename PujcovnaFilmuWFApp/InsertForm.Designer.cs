@@ -58,7 +58,7 @@
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(75, 23);
             this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Název";
+            this.materialLabel1.Text = "Název*";
             // 
             // materialLabel2
             // 
@@ -70,7 +70,7 @@
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(75, 23);
             this.materialLabel2.TabIndex = 1;
-            this.materialLabel2.Text = "Rok";
+            this.materialLabel2.Text = "Rok*";
             // 
             // materialLabel3
             // 
@@ -82,7 +82,7 @@
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(75, 23);
             this.materialLabel3.TabIndex = 2;
-            this.materialLabel3.Text = "Cena";
+            this.materialLabel3.Text = "Cena*";
             // 
             // materialLabel4
             // 
@@ -94,7 +94,7 @@
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(75, 23);
             this.materialLabel4.TabIndex = 3;
-            this.materialLabel4.Text = "Kusu";
+            this.materialLabel4.Text = "Kusu*";
             // 
             // materialLabel5
             // 
@@ -158,6 +158,8 @@
             this.materialSingleLineTextField1.Size = new System.Drawing.Size(482, 28);
             this.materialSingleLineTextField1.TabIndex = 8;
             this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField1.Validated += new System.EventHandler(this.materialSingleLineTextField1_Validated);
+            this.materialSingleLineTextField1.Validating += new System.ComponentModel.CancelEventHandler(this.materialSingleLineTextField1_Validating);
             // 
             // materialSingleLineTextField2
             // 
@@ -173,6 +175,8 @@
             this.materialSingleLineTextField2.Size = new System.Drawing.Size(482, 28);
             this.materialSingleLineTextField2.TabIndex = 9;
             this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField2.Validated += new System.EventHandler(this.materialSingleLineTextField2_Validated);
+            this.materialSingleLineTextField2.Validating += new System.ComponentModel.CancelEventHandler(this.materialSingleLineTextField2_Validating);
             // 
             // materialSingleLineTextField3
             // 
@@ -188,6 +192,8 @@
             this.materialSingleLineTextField3.Size = new System.Drawing.Size(482, 28);
             this.materialSingleLineTextField3.TabIndex = 10;
             this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField3.Validated += new System.EventHandler(this.materialSingleLineTextField3_Validated);
+            this.materialSingleLineTextField3.Validating += new System.ComponentModel.CancelEventHandler(this.materialSingleLineTextField3_Validating);
             // 
             // materialSingleLineTextField4
             // 
@@ -203,6 +209,8 @@
             this.materialSingleLineTextField4.Size = new System.Drawing.Size(482, 28);
             this.materialSingleLineTextField4.TabIndex = 11;
             this.materialSingleLineTextField4.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField4.Validated += new System.EventHandler(this.materialSingleLineTextField4_Validated);
+            this.materialSingleLineTextField4.Validating += new System.ComponentModel.CancelEventHandler(this.materialSingleLineTextField4_Validating);
             // 
             // materialSingleLineTextField5
             // 
@@ -233,6 +241,8 @@
             this.materialSingleLineTextField6.Size = new System.Drawing.Size(482, 28);
             this.materialSingleLineTextField6.TabIndex = 13;
             this.materialSingleLineTextField6.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField6.Validated += new System.EventHandler(this.materialSingleLineTextField6_Validated);
+            this.materialSingleLineTextField6.Validating += new System.ComponentModel.CancelEventHandler(this.materialSingleLineTextField6_Validating);
             // 
             // materialSingleLineTextField7
             // 
@@ -269,7 +279,7 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(199, 364);
+            this.materialFlatButton1.Location = new System.Drawing.Point(174, 369);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -278,13 +288,14 @@
             this.materialFlatButton1.TabIndex = 16;
             this.materialFlatButton1.Text = "Close";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
             // materialFlatButton2
             // 
             this.materialFlatButton2.AutoSize = true;
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton2.Depth = 0;
-            this.materialFlatButton2.Location = new System.Drawing.Point(95, 364);
+            this.materialFlatButton2.Location = new System.Drawing.Point(95, 369);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
@@ -293,6 +304,7 @@
             this.materialFlatButton2.TabIndex = 17;
             this.materialFlatButton2.Text = "Insert";
             this.materialFlatButton2.UseVisualStyleBackColor = true;
+            this.materialFlatButton2.Click += new System.EventHandler(this.materialFlatButton2_Click);
             // 
             // InsertForm
             // 

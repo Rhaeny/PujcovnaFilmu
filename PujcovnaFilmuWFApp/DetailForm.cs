@@ -44,5 +44,10 @@ namespace PujcovnaFilmuWFApp
             string hodnoceni = FilmModel.GetPrumerneHodnoceni() + "/10";
             label1.Text = hodnoceni;
         }
+
+        private void materialFlatButton1_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
     }
 }

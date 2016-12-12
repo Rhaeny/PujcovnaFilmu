@@ -91,6 +91,7 @@
             this.materialFlatButton3.TabIndex = 3;
             this.materialFlatButton3.Text = "DELETE";
             this.materialFlatButton3.UseVisualStyleBackColor = true;
+            this.materialFlatButton3.Click += new System.EventHandler(this.materialFlatButton3_Click);
             // 
             // materialFlatButton4
             // 

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using BL.ClassesBL;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -48,6 +49,12 @@ namespace PujcovnaFilmuWFApp
             }
         }
 
+        public void RefreshDataGridView()
+        {
+            dataGridView1.DataSource = FilmDB.Select();
+            dataGridView1.Update();
+        }
+
         private void materialFlatButton1_Click(object sender, System.EventArgs e)
         {
             DetailForm dForm = new DetailForm();
@@ -59,6 +66,12 @@ namespace PujcovnaFilmuWFApp
         {
             InsertForm iForm = new InsertForm();
             iForm.ShowDialog();
+        }
+
+        private void materialFlatButton3_Click(object sender, System.EventArgs e)
+        {
+            FilmDB.Delete(FilmDB.Select()[dataGridView1.CurrentCell.RowIndex].IdFilm);
+            RefreshDataGridView();
         }
     }
 }

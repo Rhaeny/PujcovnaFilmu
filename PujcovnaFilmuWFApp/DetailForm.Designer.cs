@@ -35,6 +35,7 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // materialLabel3
@@ -105,7 +106,7 @@
             this.materialLabel8.Location = new System.Drawing.Point(12, 271);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(565, 77);
+            this.materialLabel8.Size = new System.Drawing.Size(565, 92);
             this.materialLabel8.TabIndex = 7;
             this.materialLabel8.Text = "Popis";
             // 
@@ -119,11 +120,28 @@
             this.label1.Text = "10/10";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Location = new System.Drawing.Point(16, 369);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(65, 36);
+            this.materialFlatButton1.TabIndex = 10;
+            this.materialFlatButton1.Text = "Close";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
+            // 
             // DetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 420);
+            this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.materialLabel7);
@@ -135,6 +153,7 @@
             this.Sizable = false;
             this.Text = "DetailForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,5 +165,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
     }
 }
