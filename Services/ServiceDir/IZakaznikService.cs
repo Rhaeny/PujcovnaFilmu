@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
 using DTO;
+using NullDTO;
 
 namespace Services.ServiceDir
 {
@@ -9,10 +10,20 @@ namespace Services.ServiceDir
     {
         [OperationContract]
         int Insert(Zakaznik zakaznik);
+
+        [OperationContract]
         int Update(Zakaznik zakaznik);
+
+        [OperationContract]
         Collection<Zakaznik> Select();
-        Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "");
+
+        [OperationContract]
+        Collection<Zakaznik> SelectBy(ZakaznikNull zakaznikNull);
+
+        [OperationContract]
         Zakaznik Detail(int idZak);
+
+        [OperationContract]
         int Delete(int idZak);
     }
 }

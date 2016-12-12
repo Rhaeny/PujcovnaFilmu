@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using DTO;
+using NullDTO;
 using ORM.DAO;
 
 namespace Services.ServiceDir
@@ -21,9 +22,9 @@ namespace Services.ServiceDir
             return ZakaznikGateway.Select();
         }
 
-        public Collection<Zakaznik> SelectBy(string jmeno = "", string prijmeni = "", string email = "")
+        public Collection<Zakaznik> SelectBy(ZakaznikNull zakaznikNull)
         {
-            return ZakaznikGateway.SelectBy(jmeno, prijmeni, email);
+            return ZakaznikGateway.SelectBy(zakaznikNull.Jmeno, zakaznikNull.Prijmeni, zakaznikNull.Email);
         }
 
         public Zakaznik Detail(int idZak)

@@ -10,10 +10,20 @@ namespace Services.ServiceDir
     {
         [OperationContract]
         int Insert(Osoba osoba);
+
+        [OperationContract]
         int Update(Osoba osoba);
+
+        [OperationContract]
         Collection<Osoba> Select();
+
+        [OperationContract]
         Collection<Osoba> SelectBy(OsobaNull osobaNull);
+
+        [OperationContract]
         Osoba Detail(int idOsoba);
+
+        [OperationContract]
         int Delete(int idOsoba);
     }
 }

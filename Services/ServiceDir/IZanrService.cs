@@ -9,9 +9,17 @@ namespace Services.ServiceDir
     {
         [OperationContract]
         int Insert(Zanr zanr);
+
+        [OperationContract]
         int Update(Zanr zanr);
+
+        [OperationContract]
         Collection<Zanr> Select();
+
+        [OperationContract]
         Zanr Detail(int idZanr);
+
+        [OperationContract]
         int Delete(int idZanr);
     }
 }

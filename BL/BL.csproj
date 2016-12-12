@@ -55,12 +55,47 @@
     <Compile Include="ModelsBL\ZamestnaniModel.cs" />
     <Compile Include="ModelsBL\ZanrModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\FilmReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\FilmZanrReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\FrontaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ObjednavkaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OsobaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OsZamServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\RecenzeReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ZakaznikReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ZanrReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -89,7 +124,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\DTO.Film.datasource" />
     <None Include="Properties\DataSources\DTO.FilmZanr.datasource" />
+    <None Include="Properties\DataSources\DTO.Fronta.datasource" />
+    <None Include="Properties\DataSources\DTO.Objednavka.datasource" />
+    <None Include="Properties\DataSources\DTO.Osoba.datasource" />
+    <None Include="Properties\DataSources\DTO.OsZamFilm.datasource" />
+    <None Include="Properties\DataSources\DTO.Recenze.datasource" />
+    <None Include="Properties\DataSources\DTO.Zakaznik.datasource" />
+    <None Include="Properties\DataSources\DTO.Zanr.datasource" />
+    <None Include="Service References\FilmReference\FilmService.wsdl" />
+    <None Include="Service References\FilmReference\FilmService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilmReference\FilmService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilmReference\FilmService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilmReference\FilmService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\FilmZanrReference\FilmZanrService.wsdl" />
     <None Include="Service References\FilmZanrReference\FilmZanrService.xsd">
       <SubType>Designer</SubType>
@@ -103,6 +159,58 @@
     <None Include="Service References\FilmZanrReference\FilmZanrService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\FrontaReference\FrontaService.wsdl" />
+    <None Include="Service References\FrontaReference\FrontaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FrontaReference\FrontaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FrontaReference\FrontaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FrontaReference\FrontaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ObjednavkaReference\ObjednavkaService.wsdl" />
+    <None Include="Service References\ObjednavkaReference\ObjednavkaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ObjednavkaReference\ObjednavkaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ObjednavkaReference\ObjednavkaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ObjednavkaReference\ObjednavkaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsobaReference\OsobaService.wsdl" />
+    <None Include="Service References\OsobaReference\OsobaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsobaReference\OsobaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsobaReference\OsobaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsobaReference\OsobaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsZamServiceReference\OsZamFilmService.wsdl" />
+    <None Include="Service References\OsZamServiceReference\OsZamFilmService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsZamServiceReference\OsZamFilmService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsZamServiceReference\OsZamFilmService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OsZamServiceReference\OsZamFilmService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\RecenzeReference\RecenzeService.wsdl" />
     <None Include="Service References\RecenzeReference\RecenzeService.xsd">
       <SubType>Designer</SubType>
@@ -113,10 +221,40 @@
     <None Include="Service References\RecenzeReference\RecenzeService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ZakaznikReference\ZakaznikService.wsdl" />
+    <None Include="Service References\ZakaznikReference\ZakaznikService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ZakaznikReference\ZakaznikService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ZakaznikReference\ZakaznikService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ZakaznikReference\ZakaznikService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ZanrReference\ZanrService.wsdl" />
+    <None Include="Service References\ZanrReference\ZanrService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ZanrReference\ZanrService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ZanrReference\ZanrService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FilmReference\" />
     <WCFMetadataStorage Include="Service References\FilmZanrReference\" />
+    <WCFMetadataStorage Include="Service References\FrontaReference\" />
+    <WCFMetadataStorage Include="Service References\ObjednavkaReference\" />
+    <WCFMetadataStorage Include="Service References\OsobaReference\" />
+    <WCFMetadataStorage Include="Service References\OsZamServiceReference\" />
     <WCFMetadataStorage Include="Service References\RecenzeReference\" />
+    <WCFMetadataStorage Include="Service References\ZakaznikReference\" />
+    <WCFMetadataStorage Include="Service References\ZanrReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\FilmZanrReference\FilmZanrService.disco" />
@@ -143,7 +281,115 @@
     <None Include="Service References\RecenzeReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\RecenzeReference\RecenzeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\RecenzeReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmReference\FilmService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilmReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ObjednavkaReference\ObjednavkaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ObjednavkaReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ObjednavkaReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ObjednavkaReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZakaznikReference\ZakaznikService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZakaznikReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZakaznikReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZakaznikReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZanrReference\ZanrService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZanrReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZanrReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ZanrReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsobaReference\OsobaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsobaReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsobaReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsobaReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsZamServiceReference\OsZamFilmService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsZamServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsZamServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OsZamServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FrontaReference\FrontaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FrontaReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FrontaReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FrontaReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

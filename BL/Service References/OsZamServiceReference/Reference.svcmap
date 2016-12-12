@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="58da074e-1ddc-41e9-bc9c-39a9caaeca08" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/OsZamFilmService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OsZamFilmService.wsdl" MetadataType="Wsdl" ID="478be1a6-578c-47ec-8d5c-a0161fd03bfe" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsZamFilmService.svc?wsdl" />
+    <MetadataFile FileName="OsZamFilmService.xsd" MetadataType="Schema" ID="975d2586-507b-402b-8b58-71b64d9925f0" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsZamFilmService.svc?xsd=xsd3" />
+    <MetadataFile FileName="OsZamFilmService1.xsd" MetadataType="Schema" ID="931ee7ed-8489-4a75-a1b6-51cb70a5cedd" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsZamFilmService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OsZamFilmService2.xsd" MetadataType="Schema" ID="86bd8d7d-ff6c-4960-b57f-20ca73453175" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsZamFilmService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OsZamFilmService.disco" MetadataType="Disco" ID="73080e58-40cb-4059-a63c-031692c3007b" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsZamFilmService.svc?disco" />
+    <MetadataFile FileName="OsZamFilmService3.xsd" MetadataType="Schema" ID="c3aa1219-f245-4850-8023-a61f1a855f6c" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsZamFilmService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,22 +1,23 @@
 ﻿using System.Collections.ObjectModel;
 using BL.ModelsBL;
+using BL.ObjednavkaReference;
 using DTO;
+using NullDTO;
 using ORM.DAO;
-using Services.ServiceDir;
 
 namespace BL.ClassesBL
 {
     public class ObjednavkaBL
     {
-        private ObjednavkaService _objednavkaAdapter;
+        private ObjednavkaServiceClient _objednavkaAdapter;
 
-        protected ObjednavkaService Adapter
+        protected ObjednavkaServiceClient Adapter
         {
             get
             {
                 if (_objednavkaAdapter == null)
                 {
-                    _objednavkaAdapter = new ObjednavkaService();
+                    _objednavkaAdapter = new ObjednavkaServiceClient();
                 }
                 return _objednavkaAdapter;
             }
@@ -43,10 +44,18 @@ namespace BL.ClassesBL
             return ret;
         }
 
-        public Collection<ObjednavkaModel> SelectBy(char? vydano = null, char? vraceno = null,
+        public Collection<ObjednavkaModel> SelectBy(bool? vydano = null, bool? vraceno = null,
             int? idZak = null, int? idFilm = null, int? idVydejce = null)
         {
-            Collection<Objednavka> objednavky = Adapter.SelectBy(vydano, vraceno, idZak, idFilm, idVydejce);
+            ObjednavkaNull objednavkaNull = new ObjednavkaNull()
+            {
+                Vydano = vydano,
+                Vraceno = vraceno,
+                IdZak = idZak,
+                IdFilm = idZak,
+                IdVydejce = idVydejce
+            };
+            Collection<Objednavka> objednavky = Adapter.SelectBy(objednavkaNull);
             Collection<ObjednavkaModel> ret = new Collection<ObjednavkaModel>();
             foreach (var objednavka in objednavky)
             {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8e2e645e-35ad-428f-9bb7-f73784133b2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/ZanrService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ZanrService.xsd" MetadataType="Schema" ID="ac22de59-d398-4b43-89c2-105712e6097b" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZanrService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ZanrService.disco" MetadataType="Disco" ID="fac53c4b-e21a-4899-a283-d74c708d6ea1" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZanrService.svc?disco" />
+    <MetadataFile FileName="ZanrService1.xsd" MetadataType="Schema" ID="236295cc-7ca9-4de5-b557-44196436ccc3" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZanrService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ZanrService2.xsd" MetadataType="Schema" ID="fc51e470-6f64-4328-b924-2ea5fa335fb4" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZanrService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ZanrService.wsdl" MetadataType="Wsdl" ID="4dd8c917-adb0-481a-8994-accca484abaa" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZanrService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

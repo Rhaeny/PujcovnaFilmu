@@ -1,20 +1,21 @@
 ﻿using System.Collections.ObjectModel;
+using BL.FilmReference;
 using BL.ModelsBL;
 using DTO;
-using Services.ServiceDir;
+using NullDTO;
 
 namespace BL.ClassesBL
 {
     public class FilmBL
     {
-        private FilmService _filmAdapter;
-        protected FilmService Adapter
+        private FilmServiceClient _filmAdapter;
+        protected FilmServiceClient Adapter
         {
             get
             {
                 if (_filmAdapter == null)
                 {
-                    _filmAdapter = new FilmService();
+                    _filmAdapter = new FilmServiceClient();
                 }
                 return _filmAdapter;
             }
@@ -43,7 +44,15 @@ namespace BL.ClassesBL
 
         public Collection<FilmModel> SelectBy(string nazev = "", int? rok = null, int? cena = null, int? kusu = null, string typ = "")
         {
-            Collection<Film> films = Adapter.SelectBy(nazev, rok, cena, kusu, typ);
+            FilmNull filmNull = new FilmNull()
+            {
+                Cena = cena,
+                Kusu = kusu,
+                Nazev = nazev,
+                Rok = rok,
+                Typ = typ
+            };
+            Collection<Film> films = Adapter.SelectBy(filmNull);
             Collection<FilmModel> ret = new Collection<FilmModel>();
             foreach (var film in films)
             {

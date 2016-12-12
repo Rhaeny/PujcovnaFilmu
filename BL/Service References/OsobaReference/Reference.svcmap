@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6ae56ce1-a462-4d9d-9882-34f4fbc6e3cc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/OsobaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OsobaService.disco" MetadataType="Disco" ID="669a0b5f-4d55-4388-8e57-ec3cd05bec6b" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsobaService.svc?disco" />
+    <MetadataFile FileName="OsobaService.xsd" MetadataType="Schema" ID="6f831bb6-9827-4608-ac70-f205e697034c" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsobaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OsobaService.wsdl" MetadataType="Wsdl" ID="6346ba6a-3058-40d3-ae20-4294514e49a5" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsobaService.svc?wsdl" />
+    <MetadataFile FileName="OsobaService1.xsd" MetadataType="Schema" ID="1b85af77-0153-4671-bedd-8760dda606b9" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsobaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="OsobaService2.xsd" MetadataType="Schema" ID="ed542364-6029-47a9-a108-7533e6927357" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsobaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OsobaService3.xsd" MetadataType="Schema" ID="92645d9d-dab0-422d-8265-c1ca4c1ceb1d" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/OsobaService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

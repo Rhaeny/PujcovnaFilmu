@@ -1,21 +1,21 @@
 ﻿using System.Collections.ObjectModel;
 using BL.ModelsBL;
+using BL.ZakaznikReference;
 using DTO;
-using ORM.DAO;
-using Services.ServiceDir;
+using NullDTO;
 
 namespace BL.ClassesBL
 {
     public class ZakaznikBL
     {
-        private ZakaznikService _zakaznikAdapter;
-        protected ZakaznikService Adapter
+        private ZakaznikServiceClient _zakaznikAdapter;
+        protected ZakaznikServiceClient Adapter
         {
             get
             {
                 if (_zakaznikAdapter == null)
                 {
-                    _zakaznikAdapter = new ZakaznikService();
+                    _zakaznikAdapter = new ZakaznikServiceClient();
                 }
                 return _zakaznikAdapter;
             }
@@ -44,7 +44,13 @@ namespace BL.ClassesBL
 
         public Collection<ZakaznikModel> SelectBy(string jmeno = "", string prijmeni = "", string email = "")
         {
-            Collection<Zakaznik> zakaznici = Adapter.SelectBy(jmeno, prijmeni, email);
+            ZakaznikNull zakaznikNull = new ZakaznikNull()
+            {
+                Jmeno = jmeno,
+                Prijmeni = prijmeni,
+                Email = email
+            };
+            Collection<Zakaznik> zakaznici = Adapter.SelectBy(zakaznikNull);
             Collection<ZakaznikModel> ret = new Collection<ZakaznikModel>();
             foreach (var zakaznik in zakaznici)
             {

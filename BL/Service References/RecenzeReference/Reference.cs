@@ -20,6 +20,36 @@ namespace BL.RecenzeReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Insert", ReplyAction="http://tempuri.org/IRecenzeService/InsertResponse")]
         System.Threading.Tasks.Task<int> InsertAsync(DTO.Recenze recenze);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Update", ReplyAction="http://tempuri.org/IRecenzeService/UpdateResponse")]
+        int Update(DTO.Recenze recenze);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Update", ReplyAction="http://tempuri.org/IRecenzeService/UpdateResponse")]
+        System.Threading.Tasks.Task<int> UpdateAsync(DTO.Recenze recenze);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Select", ReplyAction="http://tempuri.org/IRecenzeService/SelectResponse")]
+        System.Collections.ObjectModel.Collection<DTO.Recenze> Select();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Select", ReplyAction="http://tempuri.org/IRecenzeService/SelectResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.Recenze>> SelectAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/SelectBy", ReplyAction="http://tempuri.org/IRecenzeService/SelectByResponse")]
+        System.Collections.ObjectModel.Collection<DTO.Recenze> SelectBy(NullDTO.RecenzeNull recenzeNull);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/SelectBy", ReplyAction="http://tempuri.org/IRecenzeService/SelectByResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.Recenze>> SelectByAsync(NullDTO.RecenzeNull recenzeNull);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Detail", ReplyAction="http://tempuri.org/IRecenzeService/DetailResponse")]
+        DTO.Recenze Detail(int idZak, int idFilm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Detail", ReplyAction="http://tempuri.org/IRecenzeService/DetailResponse")]
+        System.Threading.Tasks.Task<DTO.Recenze> DetailAsync(int idZak, int idFilm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Delete", ReplyAction="http://tempuri.org/IRecenzeService/DeleteResponse")]
+        int Delete(int idZak, int idFilm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRecenzeService/Delete", ReplyAction="http://tempuri.org/IRecenzeService/DeleteResponse")]
+        System.Threading.Tasks.Task<int> DeleteAsync(int idZak, int idFilm);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +85,46 @@ namespace BL.RecenzeReference {
         
         public System.Threading.Tasks.Task<int> InsertAsync(DTO.Recenze recenze) {
             return base.Channel.InsertAsync(recenze);
+        }
+        
+        public int Update(DTO.Recenze recenze) {
+            return base.Channel.Update(recenze);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateAsync(DTO.Recenze recenze) {
+            return base.Channel.UpdateAsync(recenze);
+        }
+        
+        public System.Collections.ObjectModel.Collection<DTO.Recenze> Select() {
+            return base.Channel.Select();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.Recenze>> SelectAsync() {
+            return base.Channel.SelectAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<DTO.Recenze> SelectBy(NullDTO.RecenzeNull recenzeNull) {
+            return base.Channel.SelectBy(recenzeNull);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.Recenze>> SelectByAsync(NullDTO.RecenzeNull recenzeNull) {
+            return base.Channel.SelectByAsync(recenzeNull);
+        }
+        
+        public DTO.Recenze Detail(int idZak, int idFilm) {
+            return base.Channel.Detail(idZak, idFilm);
+        }
+        
+        public System.Threading.Tasks.Task<DTO.Recenze> DetailAsync(int idZak, int idFilm) {
+            return base.Channel.DetailAsync(idZak, idFilm);
+        }
+        
+        public int Delete(int idZak, int idFilm) {
+            return base.Channel.Delete(idZak, idFilm);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteAsync(int idZak, int idFilm) {
+            return base.Channel.DeleteAsync(idZak, idFilm);
         }
     }
 }

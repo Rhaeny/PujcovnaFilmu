@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NullDTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NullDTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RecenzeNull">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cislo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IdFilm" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IdZak" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecenzeNull" nillable="true" type="tns:RecenzeNull" />
+</xs:schema>

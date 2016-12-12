@@ -1,9 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using BL.FilmZanrReference;
+using BL.FrontaReference;
+using BL.OsobaReference;
+using BL.OsZamServiceReference;
+using BL.RecenzeReference;
+using BL.ZanrReference;
 using DTO;
 using NullDTO;
-using Services.ServiceDir;
 
 namespace BL.ModelsBL
 {
@@ -24,11 +28,11 @@ namespace BL.ModelsBL
         private Collection<RecenzeModel> _recenze;
         private Collection<FrontaModel> _fronta;
         private FilmZanrServiceClient _filmZanrAdapter;
-        private ZanrService _zanrAdapter;
-        private OsZamFilmService _osZamFilmAdapter;
-        private OsobaService _osobaAdapter;
-        private RecenzeService _recenzeAdapter;
-        private FrontaService _frontaAdapter;
+        private ZanrServiceClient _zanrAdapter;
+        private OsobaServiceClient _osobaAdapter;
+        private OsZamFilmServiceClient _osZamFilmAdapter;
+        private RecenzeServiceClient _recenzeAdapter;
+        private FrontaServiceClient _frontaAdapter;
 
         protected FilmZanrServiceClient FilmZanrAdapter
         {
@@ -42,61 +46,61 @@ namespace BL.ModelsBL
             }
         }
 
-        protected ZanrService ZanrAdapter
+        protected ZanrServiceClient ZanrAdapter
         {
             get
             {
                 if (_zanrAdapter == null)
                 {
-                    _zanrAdapter = new ZanrService();
+                    _zanrAdapter = new ZanrServiceClient();
                 }
                 return _zanrAdapter;
             }
         }
 
-        protected OsobaService OsobaAdapter
+        protected OsobaServiceClient OsobaAdapter
         {
             get
             {
                 if (_osobaAdapter == null)
                 {
-                    _osobaAdapter = new OsobaService();
+                    _osobaAdapter = new OsobaServiceClient();
                 }
                 return _osobaAdapter;
             }
         }
 
-        protected OsZamFilmService OsZamFilmAdapter
+        protected OsZamFilmServiceClient OsZamFilmAdapter
         {
             get
             {
                 if (_osZamFilmAdapter == null)
                 {
-                    _osZamFilmAdapter = new OsZamFilmService();
+                    _osZamFilmAdapter = new OsZamFilmServiceClient();
                 }
                 return _osZamFilmAdapter;
             }
         }
 
-        protected RecenzeService RecenzeAdapter
+        protected RecenzeServiceClient RecenzeAdapter
         {
             get
             {
                 if (_recenzeAdapter == null)
                 {
-                    _recenzeAdapter = new RecenzeService();
+                    _recenzeAdapter = new RecenzeServiceClient();
                 }
                 return _recenzeAdapter;
             }
         }
 
-        protected FrontaService FrontaAdapter
+        protected FrontaServiceClient FrontaAdapter
         {
             get
             {
                 if (_frontaAdapter == null)
                 {
-                    _frontaAdapter = new FrontaService();
+                    _frontaAdapter = new FrontaServiceClient();
                 }
                 return _frontaAdapter;
             }
@@ -157,7 +161,12 @@ namespace BL.ModelsBL
         {
             if (_osoby == null)
             {
-                Collection<OsZamFilm> osZamFilms = OsZamFilmAdapter.SelectBy(idFilm: IdFilm, idZam: idZam);
+                OsZamFilmNull osZamFilmNull = new OsZamFilmNull()
+                {
+                    IdFilm = IdFilm,
+                    IdZam = idZam
+                };
+                Collection<OsZamFilm> osZamFilms = OsZamFilmAdapter.SelectBy(osZamFilmNull);
                 _osoby = new Collection<OsobaModel>();
                 foreach (var osZamFilm in osZamFilms)
                 {
@@ -172,7 +181,11 @@ namespace BL.ModelsBL
         {
             if (_recenze == null)
             {
-                Collection<Recenze> recenzes = RecenzeAdapter.SelectBy(idFilm: IdFilm);
+                RecenzeNull recenzeNull = new RecenzeNull()
+                {
+                    IdFilm = IdFilm
+                };
+                Collection<Recenze> recenzes = RecenzeAdapter.SelectBy(recenzeNull);
                 _recenze = new Collection<RecenzeModel>();
                 foreach (var recenze in recenzes)
                 {
@@ -187,7 +200,11 @@ namespace BL.ModelsBL
         {
             if (_fronta == null)
             {
-                Collection<Fronta> fronta = FrontaAdapter.SelectBy(idFilm: IdFilm);
+                FrontaNull frontaNull = new FrontaNull()
+                {
+                    IdFilm = IdFilm
+                };
+                Collection<Fronta> fronta = FrontaAdapter.SelectBy(frontaNull);
                 _fronta = new Collection<FrontaModel>();
                 foreach (var frontaItem in fronta)
                 {

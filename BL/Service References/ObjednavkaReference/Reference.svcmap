@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="07dea515-a45a-4378-9a03-74ae95d0fce5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/ObjednavkaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ObjednavkaService.wsdl" MetadataType="Wsdl" ID="06141c3f-5f69-472f-ad71-b55dc9fb2892" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ObjednavkaService.svc?wsdl" />
+    <MetadataFile FileName="ObjednavkaService.xsd" MetadataType="Schema" ID="4a1c38ab-21fc-4f49-a274-4c94d1cf47a5" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ObjednavkaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ObjednavkaService1.xsd" MetadataType="Schema" ID="b425d0d5-3d17-4675-8d84-a7359c0f67ef" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ObjednavkaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ObjednavkaService3.xsd" MetadataType="Schema" ID="afde14e9-bf8d-487d-a307-b436fb4ffc51" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ObjednavkaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ObjednavkaService.disco" MetadataType="Disco" ID="55863e0c-7ff9-4882-8a51-9c6254e892d3" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ObjednavkaService.svc?disco" />
+    <MetadataFile FileName="ObjednavkaService2.xsd" MetadataType="Schema" ID="eb1606cc-a252-46bc-a5ec-53163ba2f350" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ObjednavkaService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

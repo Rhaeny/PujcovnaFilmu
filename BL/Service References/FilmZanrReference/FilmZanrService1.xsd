@@ -31,7 +31,7 @@
   <xs:element name="SelectBy">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NullDTO" minOccurs="0" name="filmZanr" nillable="true" type="q3:FilmZanrNull" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NullDTO" minOccurs="0" name="filmZanrNull" nillable="true" type="q3:FilmZanrNull" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

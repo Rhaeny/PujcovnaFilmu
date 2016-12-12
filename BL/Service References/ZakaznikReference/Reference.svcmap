@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d2c7d8bf-a89e-406c-b64c-964195015276" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.Collection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55758/ServiceDir/ZakaznikService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ZakaznikService.xsd" MetadataType="Schema" ID="32ada359-dac8-49a8-aa74-f54e3bac6cc2" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZakaznikService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ZakaznikService.wsdl" MetadataType="Wsdl" ID="7e12061a-d1e5-486f-b6ee-63ea287a7dee" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZakaznikService.svc?wsdl" />
+    <MetadataFile FileName="ZakaznikService.disco" MetadataType="Disco" ID="9e48c256-59dd-447e-956a-655b5603c701" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZakaznikService.svc?disco" />
+    <MetadataFile FileName="ZakaznikService1.xsd" MetadataType="Schema" ID="1a3a4c18-8474-4af5-b01c-1122991f34af" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZakaznikService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ZakaznikService2.xsd" MetadataType="Schema" ID="1469b0b4-5ef3-4ec0-b23b-24ae689458a7" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZakaznikService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ZakaznikService3.xsd" MetadataType="Schema" ID="53fc3c22-f9e0-4177-b384-e2de53de242e" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/ZakaznikService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

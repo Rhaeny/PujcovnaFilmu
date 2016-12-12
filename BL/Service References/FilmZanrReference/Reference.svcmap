@@ -24,7 +24,7 @@
     <MetadataSource Address="http://localhost:55758/ServiceDir/FilmZanrService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FilmZanrService3.xsd" MetadataType="Schema" ID="af3b9ebd-1f67-4801-b24c-0f05b6d395ab" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FilmZanrService3.xsd" MetadataType="Schema" ID="a61044da-098f-477b-9443-0690925cfaed" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd3" />
     <MetadataFile FileName="FilmZanrService2.xsd" MetadataType="Schema" ID="75c1bf71-a3bc-45cd-b462-0d314a3f5ce1" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd2" />
     <MetadataFile FileName="FilmZanrService.xsd" MetadataType="Schema" ID="52464b2e-bff6-45f9-be56-1753d2f990f0" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd1" />
     <MetadataFile FileName="FilmZanrService1.xsd" MetadataType="Schema" ID="f850ce1c-5971-46c0-87b4-ccf5e0635051" SourceId="1" SourceUrl="http://localhost:55758/ServiceDir/FilmZanrService.svc?xsd=xsd0" />

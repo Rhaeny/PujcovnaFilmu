@@ -28,10 +28,10 @@ namespace BL.FilmZanrReference {
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.FilmZanr>> SelectAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFilmZanrService/SelectBy", ReplyAction="http://tempuri.org/IFilmZanrService/SelectByResponse")]
-        System.Collections.ObjectModel.Collection<DTO.FilmZanr> SelectBy(NullDTO.FilmZanrNull filmZanr);
+        System.Collections.ObjectModel.Collection<DTO.FilmZanr> SelectBy(NullDTO.FilmZanrNull filmZanrNull);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFilmZanrService/SelectBy", ReplyAction="http://tempuri.org/IFilmZanrService/SelectByResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.FilmZanr>> SelectByAsync(NullDTO.FilmZanrNull filmZanr);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.FilmZanr>> SelectByAsync(NullDTO.FilmZanrNull filmZanrNull);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFilmZanrService/Delete", ReplyAction="http://tempuri.org/IFilmZanrService/DeleteResponse")]
         int Delete(int idFilm, int idZanr);
@@ -83,12 +83,12 @@ namespace BL.FilmZanrReference {
             return base.Channel.SelectAsync();
         }
         
-        public System.Collections.ObjectModel.Collection<DTO.FilmZanr> SelectBy(NullDTO.FilmZanrNull filmZanr) {
-            return base.Channel.SelectBy(filmZanr);
+        public System.Collections.ObjectModel.Collection<DTO.FilmZanr> SelectBy(NullDTO.FilmZanrNull filmZanrNull) {
+            return base.Channel.SelectBy(filmZanrNull);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.FilmZanr>> SelectByAsync(NullDTO.FilmZanrNull filmZanr) {
-            return base.Channel.SelectByAsync(filmZanr);
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<DTO.FilmZanr>> SelectByAsync(NullDTO.FilmZanrNull filmZanrNull) {
+            return base.Channel.SelectByAsync(filmZanrNull);
         }
         
         public int Delete(int idFilm, int idZanr) {

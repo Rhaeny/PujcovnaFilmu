@@ -10,4 +10,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Recenze" nillable="true" type="tns:Recenze" />
+  <xs:complexType name="ArrayOfRecenze">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recenze" nillable="true" type="tns:Recenze" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecenze" nillable="true" type="tns:ArrayOfRecenze" />
 </xs:schema>
