@@ -79,6 +79,40 @@
         </div>
     </div>
     <br/>
+    <br/>
+    
+    <p>
+        Reziseri:
+        @foreach (var item in @Model.GetOsoby(1))
+        {
+            <a href="#">@item.Jmeno @item.Prijmeni 	&nbsp;</a>
+        }
+    </p>
+    <p>
+        Scenaristi:
+        @foreach (var item in @Model.GetOsoby(3))
+        {
+            <a href="#">@item.Jmeno @item.Prijmeni 	&nbsp;</a>
+        }
+    </p>
+    <p>
+        Herci:
+        @foreach (var item in @Model.GetOsoby(2))
+        {
+            <a href="#">@item.Jmeno @item.Prijmeni 	&nbsp;</a>
+        }
+    </p>
+    <p>
+        Skladatele:
+        @foreach (var item in @Model.GetOsoby(4))
+        {
+            <a href="#">@item.Jmeno @item.Prijmeni 	&nbsp;</a>
+        }
+    </p>
+
+    <br/>
+    <br/>
+
     @{
         int i = 0;
     }

@@ -161,18 +161,22 @@ namespace BL.ModelsBL
         {
             if (_osoby == null)
             {
-                OsZamFilmNull osZamFilmNull = new OsZamFilmNull()
-                {
-                    IdFilm = IdFilm,
-                    IdZam = idZam
-                };
-                Collection<OsZamFilm> osZamFilms = OsZamFilmAdapter.SelectBy(osZamFilmNull);
                 _osoby = new Collection<OsobaModel>();
-                foreach (var osZamFilm in osZamFilms)
-                {
-                    OsobaModel osobaModel = new OsobaModel(OsobaAdapter.Detail(osZamFilm.IdOsoba));
-                    _osoby.Add(osobaModel);
-                }
+            }
+            else
+            {
+                _osoby.Clear();
+            }
+            OsZamFilmNull osZamFilmNull = new OsZamFilmNull()
+            {
+                IdFilm = IdFilm,
+                IdZam = idZam
+            };
+            Collection<OsZamFilm> osZamFilms = OsZamFilmAdapter.SelectBy(osZamFilmNull);
+            foreach (var osZamFilm in osZamFilms)
+            {
+                OsobaModel osobaModel = new OsobaModel(OsobaAdapter.Detail(osZamFilm.IdOsoba));
+                _osoby.Add(osobaModel);
             }
             return _osoby;
         }
