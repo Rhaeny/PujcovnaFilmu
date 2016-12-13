@@ -8,6 +8,7 @@ namespace Services.ServiceDir
     [ServiceContract]
     public interface IFilmZanrService
     {
+        [OperationContract]
         int Insert(FilmZanr filmZanr);
 
         [OperationContract]
