@@ -55,23 +55,30 @@ namespace PujcovnaFilmuWFApp
             dataGridView1.Update();
         }
 
-        private void materialFlatButton1_Click(object sender, System.EventArgs e)
+        private void materialFlatButton1_Click(object sender, EventArgs e)
         {
             DetailForm dForm = new DetailForm();
             dForm.SetDetail(dataGridView1.CurrentCell.RowIndex);
             dForm.ShowDialog();
         }
 
-        private void materialFlatButton4_Click(object sender, System.EventArgs e)
+        private void materialFlatButton4_Click(object sender, EventArgs e)
         {
-            InsertForm iForm = new InsertForm();
+            InsertForm iForm = new InsertForm(this);
             iForm.ShowDialog();
         }
 
-        private void materialFlatButton3_Click(object sender, System.EventArgs e)
+        private void materialFlatButton3_Click(object sender, EventArgs e)
         {
             FilmDB.Delete(FilmDB.Select()[dataGridView1.CurrentCell.RowIndex].IdFilm);
             RefreshDataGridView();
+        }
+
+        private void materialFlatButton2_Click(object sender, EventArgs e)
+        {
+            UpdateForm uForm = new UpdateForm(this);
+            uForm.SetUpdate(dataGridView1.CurrentCell.RowIndex);
+            uForm.ShowDialog();
         }
     }
 }

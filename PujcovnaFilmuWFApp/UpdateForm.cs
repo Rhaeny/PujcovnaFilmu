@@ -6,13 +6,13 @@ using MaterialSkin.Controls;
 
 namespace PujcovnaFilmuWFApp
 {
-    public partial class InsertForm : MaterialForm
+    public partial class UpdateForm : MaterialForm
     {
         public FilmBL FilmDB { get; set; }
         public FilmModel FilmModel { get; set; }
         public Form1 Form1 { get; set; }
 
-        public InsertForm(Form1 form1)
+        public UpdateForm(Form1 form1)
         {
             InitializeComponent();
 
@@ -27,32 +27,17 @@ namespace PujcovnaFilmuWFApp
             FilmModel = new FilmModel();
         }
 
-        private void materialFlatButton1_Click(object sender, System.EventArgs e)
+        public void SetUpdate(int row)
         {
-            Close();
-        }
-
-        private void materialFlatButton2_Click(object sender, System.EventArgs e)
-        {
-            int i;
-            if (materialSingleLineTextField1.Text != ""
-                && int.TryParse(materialSingleLineTextField2.Text, out i)
-                && int.TryParse(materialSingleLineTextField3.Text, out i)
-                && int.TryParse(materialSingleLineTextField4.Text, out i)
-                && int.TryParse(materialSingleLineTextField6.Text, out i))
-            {
-                FilmModel.Nazev = materialSingleLineTextField1.Text;
-                FilmModel.Rok = int.Parse(materialSingleLineTextField2.Text);
-                FilmModel.Cena = int.Parse(materialSingleLineTextField3.Text);
-                FilmModel.Kusu = int.Parse(materialSingleLineTextField4.Text);
-                FilmModel.Typ = materialSingleLineTextField5.Text;
-                FilmModel.Delka = int.Parse(materialSingleLineTextField6.Text);
-                FilmModel.Zeme = materialSingleLineTextField7.Text;
-                FilmModel.Popis = materialSingleLineTextField8.Text;
-                FilmDB.Insert(FilmModel);
-                Form1.RefreshDataGridView();
-                Close();
-            }
+            FilmModel = FilmDB.Detail(FilmDB.Select()[row].IdFilm);
+            materialSingleLineTextField1.Text = FilmModel.Nazev;
+            materialSingleLineTextField2.Text = FilmModel.Rok.ToString();
+            materialSingleLineTextField3.Text = FilmModel.Cena.ToString();
+            materialSingleLineTextField4.Text = FilmModel.Kusu.ToString();
+            materialSingleLineTextField5.Text = FilmModel.Typ;
+            materialSingleLineTextField6.Text = FilmModel.Delka.ToString();
+            materialSingleLineTextField7.Text = FilmModel.Zeme;
+            materialSingleLineTextField8.Text = FilmModel.Popis;
         }
 
         private void materialSingleLineTextField1_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -146,6 +131,34 @@ namespace PujcovnaFilmuWFApp
             {
                 materialSingleLineTextField6.BackColor = Color.White;
             }
+        }
+
+        private void materialFlatButton2_Click(object sender, System.EventArgs e)
+        {
+            int i;
+            if (materialSingleLineTextField1.Text != ""
+                && int.TryParse(materialSingleLineTextField2.Text, out i)
+                && int.TryParse(materialSingleLineTextField3.Text, out i)
+                && int.TryParse(materialSingleLineTextField4.Text, out i)
+                && int.TryParse(materialSingleLineTextField6.Text, out i))
+            {
+                FilmModel.Nazev = materialSingleLineTextField1.Text;
+                FilmModel.Rok = int.Parse(materialSingleLineTextField2.Text);
+                FilmModel.Cena = int.Parse(materialSingleLineTextField3.Text);
+                FilmModel.Kusu = int.Parse(materialSingleLineTextField4.Text);
+                FilmModel.Typ = materialSingleLineTextField5.Text;
+                FilmModel.Delka = int.Parse(materialSingleLineTextField6.Text);
+                FilmModel.Zeme = materialSingleLineTextField7.Text;
+                FilmModel.Popis = materialSingleLineTextField8.Text;
+                FilmDB.Update(FilmModel);
+                Form1.RefreshDataGridView();
+                Close();
+            }
+        }
+
+        private void materialFlatButton1_Click(object sender, System.EventArgs e)
+        {
+            Close();
         }
     }
 }
